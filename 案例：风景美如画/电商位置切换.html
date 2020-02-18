@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>电商位置切换</title>
+		<style>
+			*{margin: 0;padding: 0;list-style: none;}
+			#box{
+				border: 1px solid #cccccc;
+				width: 1280px;
+				height: 140px;
+				padding-top:360px;
+				margin: 100px; 
+				background: url("img/1.jpg") no-repeat;
+			}
+			ul{
+				display: flex;
+				justify-content:center;
+				align-items:center ;
+				cursor: pointer;
+			}
+			img{
+				width: 240px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+				<ul >
+				<li id="li01"><img id="small1" src="img/1.jpg"/></li>
+				<li id="li02"><img id="small2" src="img/2.jpg"/></li>
+				<li id="li03"><img id="small3" src="img/3.jpg"/></li>
+				<li id="li04"><img id="small4" src="img/4.jpg"/></li>
+				<li id="li05"><img id="small5" src="img/5.jpg"/></li>
+				</ul>
+		</div>
+		<script>
+			window.onload=()=>{
+				//1.获取标签:
+				
+				var li01=$("li01");
+				var li02=$("li02");
+				var li03=$("li03");
+				var li04=$("li04");
+				var li05=$("li05");
+				var box=$("box");
+				//根据id获取标签
+				function changeImg(tag,imgSrc){
+					$(tag).style.background=imgSrc;
+				}
+				
+				//监听鼠标的事件:
+				li01.onmouseover=()=>{
+					changeImg("box",'url("img/1.jpg") no-repeat');
+				}
+				li02.onmouseover=()=>{
+					changeImg("box",'url("img/2.jpg") no-repeat');
+				}
+				li03.onmouseover=()=>{
+					changeImg("box",'url("img/3.jpg") no-repeat');
+					
+				}
+				li04.onmouseover=()=>{
+				changeImg("box",'url("img/4.jpg") no-repeat');
+				}
+				li05.onmouseover=()=>{
+					changeImg("box",'url("img/5.jpg") no-repeat');
+				}
+				
+				function $(str){
+					return (typeof str)=='string'?document.getElementById(str):null;
+				}
+				
+			}
+		</script>
+	</body>
+</html>

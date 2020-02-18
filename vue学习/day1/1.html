@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="../css/1.css" type="text/css" />
+	</head>
+	<body>
+		<div id="app">
+			{{message}}
+		</div>
+		<div id="app-2">
+		  <span v-bind:title="message">
+		    鼠标悬停几秒钟查看此处动态绑定的提示信息！
+		  </span>
+		</div>
+		 <div id="app-3">
+			<todo-item></todo-item>
+		</div> 
+	</body>
+	<script>
+		var app=new Vue({
+			el:'#app',
+			data:{
+				message:'hello'
+			}
+		})
+		var app2=new Vue({
+			el:'#app-2',
+			data:{
+				message:"页面加载于"+new Date().toLocaleString()
+			}
+		})
+		Vue.component('todo-item',{
+			template:'<li>这是个代办项目</li>'
+		})
+		var app3=new Vue({
+			el:"#app-3",
+			
+		})
+		/* var openTime=new Date().getTime()
+		alert(openTime);
+		setInterval(function(){
+			var change=document.getElementById("app-3");
+			change.innerHTML="现在时间："+new Date().toLocaleTimeString();
+			//console.log("现在时间："+new Date().toLocaleTimeString();
+			change.innerHTML+="你已经打开了该网站："
+		},1000) */
+		
+	</script>
+</html>

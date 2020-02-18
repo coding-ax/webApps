@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="../js/vue.js">
+		</script>
+	</head>
+	<body>
+		<!-- <div id="app" >
+	<blog-post title="hello"></blog-post>
+		<blog-post title="My journey with Vue"></blog-post>
+		<blog-post title="Blogging with Vue"></blog-post>
+		<blog-post title="Why Vue is so fun"></blog-post> 
+		<post-post v-for="post in posts" v-bind:key="post.id" v-bind:post="post"></post-post>
+		</div> -->
+		
+		<div id="app-2">
+			<div :style="{fontSize:postFontSize+'em'}" >
+				<post-post v-on:enlarge-text="postFontSize += 0.1"   v-for="post in posts" :key="post.id" :post="post" ></post-post>
+			</div>
+		</div>
+		<script type="text/javascript">
+		// Vue.component('blog-post',{
+		// 	props:['title'],
+		// 	template:'<h3>{{title}}</h3>'
+		// })	
+		// Vue.component('blog-post', {
+		//   props: ['title'],
+		//   template: '<h3>{{ title }}</h3>'
+		// })
+		
+		
+		Vue.component('post-post',{
+			props:['post'],
+			template:`
+			<div class="post-item">
+			<h3 class="post-title">{{post.title}}</h3>
+			<div class="post-author" >{{post.author}}</div>
+			<div class="post-content" v-html="post.content"></div>
+			<button v-on:click="$emit('enlarge-text')">放大</button>
+			</div>
+			`
+		})
+		
+		Vue.component('blog-posts-event-demo',{
+			template:`
+			
+			`
+		})
+		new Vue({
+			el:"#app-2",
+			data:function(){
+				return{
+				postFontSize:2,
+				posts:[{
+					id:1,
+					title:'云霄飞车杀人事件',
+					author:'柯南',
+					content:'究竟我是怎么了，哭了吗'
+				},
+				{
+					id:2,
+					title:'云霄飞车杀人事件',
+					author:'柯南',
+					content:'究竟我是怎么了，哭了吗'
+				},
+				{
+					id:3,
+					title:'云霄飞车杀人事件',
+					author:'柯南',
+					content:'究竟我是怎么了，哭了吗'
+				},
+				{
+					id:4,
+					title:'云霄飞车杀人事件',
+					author:'柯南',
+					content:'究竟我是怎么了，哭了吗'
+				},
+				{
+					id:5,
+					title:'云霄飞车杀人事件',
+					author:'柯南',
+					content:'究竟我是怎么了，哭了吗'
+				}
+				]
+			}}
+		})
+		</script>
+	</body>
+</html>
+<!-- <div class="post-author">{{author}}</div><div class="post-content">{{content}}</div>' -->

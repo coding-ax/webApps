@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>registry1.0</title>
+		<style type="text/css">
+
+        table{
+		width:35%; 
+		height:auto; 
+		border: 1px  ; 
+		background-color: aqua;
+		text-align:center ;
+		 }
+</style>
+</head>
+<body >
+<form method="post"action="post2.asp">
+<table >
+	<tr>
+	<th>账号</th>
+	<td ><input type="text"name="zh"placeholder="LiXiaoTing" ></td>
+	</tr>
+	<tr>
+	<th >姓名</th>
+	<td><input type="text"name="yn"placeholder="李晓婷" ></td>
+	</tr>
+	<tr>
+	<th >密码</th>
+	<td><input type="password" name="pass"></td>
+	</tr>
+	<tr>
+	<th>密码确认</th>
+	<td><input type="text"></td>
+	</tr>
+	<tr>
+	<th >性别</th>
+		<td align="left"><p><input type="radio" name="gender">男<input type="radio"name="gender"checked>女</p></td>
+	</tr>
+	<tr>
+	<th >生日</th>
+	<td><input type="date" name="birthday"></td>
+	</tr>
+	<tr>
+	<th >爱好</th>
+	<td><input name="hobby" type="checkbox">打篮球
+		<input name="hobby"type="checkbox">唱歌
+		<input name="hobby"type="checkbox">画画
+		<input name="hobby"type="checkbox">跳舞
+	<br>
+		<p>其他<textarea cols="30" rows="1"></textarea></p>
+	</td>
+</tr>
+	<tr>
+	<th >专业班级</th>
+	<td><select name="major">
+		   <optgroup label="major">
+		<datalist id="major">
+		<option>信管</option>
+		<option>工商</option>
+		<option>会计</option>
+		<option>财务</option>
+		<option>营销</option>
+		</datalist>
+		</optgroup>
+		</select>
+       <select name="class">
+		   <optgroup label="class">
+		<datalist id="class">
+		<option>1802</option>
+		<option>1801</option>
+		<option>1803</option>
+		</datalist>
+		</optgroup>
+      </select>
+      </td>
+	</tr>
+	<tr>
+		<th>文件上传</th>
+	  <td><input type="file">
+	  </tr>
+    <tr>
+		<th>个人头像</th>
+		<td><img src="file:///C|/Users/dell/Pictures/个人头像.jpg" width="131" height="177" alt="个人头像"/>
+  </tr>
+</table>
+</form>
+<div align="center">
+<input type="submit"><input type="reset"></div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<div id="app">{{ doubleValue }}</div>
+	<body>
+		<video width="800" height="" controls="">
+			<source src="http://vodkgeyttp8.vod.126.net/cloudmusic/MjQ3NDQ3MjUw/89a6a279dc2acfcd068b45ce72b1f560/533e4183a709699d566180ed0cd9abe9.mp4?wsSecret=7499698b879fade48c3896e8da818d56&wsTime=1582030478" type="video/mp4"></source>
+			<object width="" height="" type="application/x-shockwave-flash" data="myvideo.swf">
+				<param name="movie" value="myvideo.swf" />
+				<param name="flashvars" value="autostart=true&amp;file=myvideo.swf" />
+			</object>
+			当前浏览器不支持 video直接播放，点击这里下载视频： <a href="myvideo.webm">下载视频</a>
+		</video>
+		<script>
+			new Vue({
+				el:'#app',
+				data:()=>({
+					value:5,
+				}),
+				computed:{
+					doubleValue(){
+						console.log('changed value:');
+						return this.value*2;
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

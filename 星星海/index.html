@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;/* (用于替换ul之类的小圆点)或者去除边框 */
+        }
+
+        body{
+            background-color: #000;/*背景设置为黑色*/
+        }
+
+        span{
+            width: 30px;/*用span作为星星的载体*/
+            height: 30px;/*设置星星大小*/
+            background: url("images/star.png") no-repeat;/*设置span的样式（星星）*/
+            position: absolute;/*位置改为绝对位置，便于分配*/
+            background-size:100% 100%;/*修改每个span的星星，令星星占满span*/
+            animation: flash 1s alternate infinite;/*设置动画效果（渐灭）*/
+        }
+        
+        @keyframes flash {/*定义动画：设置不透明度*/
+            0%{opacity: 0;}
+            100%{opacity: 1;}
+        }
+
+        span:hover{
+            transform: scale(3, 3) rotate(180deg) !important;/*旋转星星位置*/
+            transition: all 1s;/*1s内全变化*/
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    window.onload = function () {
+        // 1. 求出屏幕的尺寸
+        var screenW = document.documentElement.clientWidth;
+        var screenH = document.documentElement.clientHeight;
+
+        // 2. 动态创建星星
+        for(var i=0; i<150; i++){
+            // 2.1 创建星星
+            var span = document.createElement('span');
+            document.body.appendChild(span);
+
+            // 2.2 随机的坐标
+            var x = parseInt(Math.random() * screenW);
+            var y = parseInt(Math.random() * screenH);
+            span.style.left = x + 'px';
+            span.style.top = y + 'px';
+
+            // 2.3 随机缩放
+            var scale = Math.random() * 1.5;
+            span.style.transform = 'scale('+ scale + ', ' + scale + ')';
+
+            // 2.4 频率
+            var rate = Math.random() * 1.5;
+            span.style.animationDelay = rate + 's';
+        }
+    }
+</script>
+</body>
+</html>

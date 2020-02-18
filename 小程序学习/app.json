@@ -1,0 +1,17 @@
+{
+  "pages": [  
+    "pages/post/post",
+  "pages/index/index",
+  "pages/post/post-detail/post-detail",
+  "pages/post/post-comment/post-comment",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#94cea6",
+    "navigationBarTitleText": "文章详情",
+    "navigationBarTitleText": "明月清风一樽酒",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json"
+}

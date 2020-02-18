@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="didi-navigator">
+			<ul>
+				<li v-for="tab in tabs">
+					{{ tab.text }}
+				</li>
+			</ul>
+		</div>
+		<div id="app">
+			<p v-if="hours<12">早上好 </p>
+			<p v-if="hours>=12&&hours<18">下午好</p>
+			<p v-if="hours>=18">晚上好</p>
+			
+		</div>
+		<div id="app4">
+			<p v-if="path==='/'">你位于首页</p>
+			<p v-else>你位于{{ path }}</p>
+		</div>
+		<div id="app1">
+			<ul>
+				<li v-for="(value,key) in average">
+					{{ key }}的租金是${{ value }}
+				</li>
+			</ul>
+		</div>
+		<div id="n">
+			<ul>
+				<li v-for="n in arrlist">{{ n }}</li>
+			</ul>
+		</div>
+		<div id="app5">
+			<p>自从你打开这个网页已经过了{{ hours }}小时{{ miutes }}分钟{{ second }}秒了</p>
+			<p>当前时间：{{ time }}</p>
+			<!-- <button v-show="button">我出现了</button> -->
+		</div>
+		<div id="app2">
+			<input type="text" v-model:value="inputText" />
+			<p>{{ inputText }}</p>
+		</div>
+		<div id="appd">
+			<label ><input type="radio" v-model="value" value="一">一</label>
+			<label ><input type="radio" v-model="value" value="二">二</label>
+			<label ><input type="radio" v-model="value" value="三">三</label>
+			<p>选中的值是{{ value }}</p>
+		</div>
+		<script> 
+			var dd=new Vue({
+				el:'#appd',
+				data:{
+					value:'一'
+				}
+			})
+			var recent=new Vue({
+				el:'#app2',
+				data:{
+					inputText:'早村抽芽的翠柳'
+				}
+			})
+			var time=new Vue({
+				el:'#app5',
+				data:{
+					second:0,
+					time:new Date(),
+					button:false,
+					hours:0,
+					miutes:0
+				},     
+				created(){
+					setInterval(()=>{this.second++;
+					if(this.second>59){this.miutes++;this.second=0};
+					if(this.miutes>59){this.hours++;this.miutes=0};
+					this.time=new Date();
+					this.button=!this.button;
+					},1000);
+				}
+			});
+			
+			var n=new Vue({
+				el:'#n',
+				data:{
+					arrlist:[7,6,7,8,9,7,6]
+				}
+			})
+			var one=new Vue({
+				el:'#didi-navigator',
+				data:{
+					tabs:[{
+						text:'巴士'
+					},
+					{text:'快车'},
+					{text:'汽车'}
+					]
+				}
+			})
+			var two=new Vue({
+				el:'#app',
+				
+				data:{
+					hours:new Date().getHours()
+				}
+			});
+			var three=new Vue({
+				el:'#app4',
+				data:{
+					path:location.pathname
+				}
+			})
+			var four=new Vue({
+				el:'#app1',
+				data:{
+						
+					average:{
+						london:1650,
+						paris:1730,
+						NYC:3678
+					}
+				}
+				
+			})
+			//console.log(path)
+			//console.log(hours);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<input type="text" placeholder="请输入姓名"/>
+	</body>
+	<script>
+		//placeholder常用
+		window.onload=function(){
+			var input=document.getElementsByTagName('input')[0];
+			
+			//1.获得焦点
+			input.onfocus=function(){
+				//alert(1);
+				this.style.width='500px';
+				this.style.height='40px';
+				this.style.outline='none';
+				this.style.fontSize='30px';
+				}
+			
+			//2.失去焦点
+			input.onblur=function(ev){
+				this.style.border='10px solid red';
+				this.style.color='red';
+				
+			}
+			
+			
+			
+		}
+	</script>
+</html>

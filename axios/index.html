@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/whether.css" />
+	</head>
+	<body>
+		<div class="predict-container" id="main-container">
+			<div class="predict-title-box">
+				<h2 class="title">查询天气</h2>
+				<br>
+				<div class="search-box-item">
+					<input class="search-box" type="text" placeholder="输入城市名称" v-model="searchContain" v-on:keyup.enter="searchWhether" />
+					<div class="search-button" type="button" v-on:click="searchWhether">查询</div>
+				</div>
+			</div>
+			<div class="predict-answer">
+				查询结果：<br>
+				城市：{{searchContain}}
+				<div class="list">
+				<ul class="answer-ul">
+					<li class="answer" v-for="item in answer">
+						<span>{{item.type}}<br></span>
+						日期：<span>{{item.date}}</span><br>
+						风向：<span>{{item.fengxiang}}</span><br>
+						最高温:<span>{{item.high}}</span><br>
+						最低温：<span>{{item.low}}</span>
+				
+					</li>
+				</ul>
+				</div>
+				<!-- <ul>
+				<li class="answer" >
+					
+					日期：sad<br>
+					风向：sda<br>
+					最高温:<br>
+					最低温：
+				</li>
+				<li class="answer" >
+					
+					日期：<br>
+					风向：<br>
+					最高温:{br>
+					最低温：
+				</li>
+				<li class="answer" >
+					
+					日期：<br>
+					风向：<br>
+					最高温:<br>
+					最低温：
+				</li>
+			</ul> -->
+			</div>
+		</div>
+		<script type="text/javascript">
+			var app = new Vue({
+				el: '#main-container',
+				data: {
+					searchContain: '',
+					answer: []
+				},
+				methods: {
+					searchWhether: function() {
+						// console.log("I am HERE")
+						// console.log(axios)
+						/*https://www.apiopen.top/weatherApi?*/
+						var that = this;
+						axios.get('http://wthrcdn.etouch.cn/weather_mini?city=' + this.searchContain).then(function(response) {
+							console.log(response)
+							if (response.data.desc != "OK") {
+								alert("请输入有效城市（非省份）")
+
+							} else {
+								that.answer = response.data.data.forecast;
+							}
+							// console.log(that.answer)
+							// console.log(that.answer instanceof Array)					
+						}, function(error) {
+							// console.log(error)
+							alert("请检查您的网络")
+						})
+					}
+				},
+				mounted: function() {
+					this.searchContain = "桃江";
+					this.searchWhether();
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+<!-- // <!-- 		<div id="app">
+// <!-- 		{{1+1}}
+// 		{{'dadad'}}
+// 		{{true}}
+// 		{{[1,2,3,4]}}
+// 		{{ {a:2,b:10} }}
+// 		{{ undefined }}
+// 		{{null}}	 -->
+		<div id="app">{{message}}</div>
+		<div id="app-2">
+			<span v-bind:title="message">
+				鼠标悬停几秒钟查看此处动态绑定的提示信息！
+			</span>
+		</div>
+		<div id="app-3">
+			<p v-if="seen">you can see me</p>
+		</div>
+		<div id="app-4">
+			<ol>
+				<li v-for="todo in todos">
+					{{ todo.text }}
+				</li>
+			</ol>
+		</div>
+		<div id="app-5">
+			<p>{{ message }}</p>
+			<button v-on:click="reverseMessage">反转</button>
+		</div>
+		<div id="app-6">
+			<p>
+				{{ message }}
+				
+			</p>
+			<input v-model="message" />
+		</div>
+		<div id="app-7">
+			  <ol>
+			    <!--
+			      现在我们为每个 todo-item 提供 todo 对象
+			      todo 对象是变量，即其内容可以是动态的。
+			      我们也需要为每个组件提供一个“key”，稍后再
+			      作详细解释。
+			    -->
+			    <todo-item
+			      v-for="item in groceryList"
+			      v-bind:todo="item"
+			      v-bind:key="item.id"
+			    ></todo-item>
+			  </ol>
+		</div>
+		
+		<div id="app8">
+		  <p>{{ foo }}</p>
+		  <!-- 这里的 `foo` 不会更新！ -->
+		  <button v-on:click="foo = 'baz'">Change it</button>
+		</div>
+		<div id="appt">
+			<p>数字的总和是：{{ numberTotal() }}</p>
+		</div>
+		
+ 		<script>
+			new Vue({
+				el:'#appt',
+				data:{
+					numbers:[1,2,3]
+				},
+				computed:{
+					numberTotal(){
+						return numbers.reduce((sum,val)=>sum+val);
+					}
+				}
+			})
+			var app=new Vue({
+				el:'#app',
+				data:{
+					message:'hello vue',
+					}
+			})
+			var app2=new Vue({
+				el:'#app-2',
+				data:{
+					message:'页面加载时间：'+new Date().toString()
+					}
+			})
+			var app3=new Vue({
+				el:'#app-3',
+				data:{
+					seen:true
+				}
+			})
+			var app4=new Vue({
+				el:'#app-4',
+				data:{
+				todos:[
+				{text:'学习js'},
+				{text:'学习Vue'},
+				{text:'学习框架'}			
+				],
+				}
+			})
+			var app5=new Vue({
+				el:'#app-5',
+				data:{
+					message:'hello Vue'
+				},
+				methods:{
+					reverseMessage:function(){
+						this.message=this.message.split('').reverse().join('')
+					}
+				}
+			})
+			var app6=new Vue({
+				el:'#app-6',
+				data:{
+					message:'hello vue'
+				}
+			})
+			
+			// 定义名为 todo-item 的新组件
+			/* Vue.component('todo-item', {
+			// props:['todo'],
+			 template:'<li>这次我真的放弃</li>'
+			}); */
+			// var vm=new Vue({
+			// 	el:'todo-item'
+			// });
+			Vue.component('todo-item', {
+			  props: ['todo'],
+			  template: '<li>{{ todo.text }}</li>'
+			})
+			
+			var app7 = new Vue({
+			  el: '#app-7',
+			  data: {
+			    groceryList: [
+			      { id: 0, text: '蔬菜' },
+			      { id: 1, text: '奶酪' },
+			      { id: 2, text: '随便其它什么人吃的东西' }
+			    ]
+			  }
+			})
+			
+			var data={
+				a:1
+			}
+			var vm=new Vue({
+				data:data
+			})
+			console.log(vm.a)
+			console.log(vm.a==data.a);
+			
+			var obj = {
+			  foo: 'bar'
+			}
+			
+			Object.freeze(obj)//冻结修改
+			
+			new Vue({
+			  el: '#app8',
+			  data: obj
+			})
+			
+			
+			//var arr=Vue('todo-item')
+			/* var app7=new Vue({
+				el:'#app-7',
+				data:{
+					groceryList:[{id:0,text:'蔬菜'},{id:1,text:'奶酪'},{id:2,text:'吃点什么好'}]
+				}
+			}) */
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

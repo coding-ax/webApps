@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>学习</title>
+		<script type="text/javascript" src="vue.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/two.css"/>
+		<script src="one.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app5">
+			<p>你已经开始学习了{{ hours }}小时{{ miutes }}分钟{{ second }}秒</p>
+			<p>当前时间：{{ time }}</p>
+		</div>
+		<div id="out" onclick="delayOut()">
+			<div id="font" >
+				退出战斗
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+			var time=new Vue({
+				el:'#app5',
+				data:{
+					second:0,
+					time:new Date(),
+					button:false,
+					hours:0,
+					miutes:0
+				},     
+				created(){
+					setInterval(()=>{this.second++;
+					if(this.second>59){this.miutes++;this.second=0};
+					if(this.miutes>59){this.hours++;this.miutes=0};
+					this.time=new Date();
+					this.button=!this.button;
+					},1000);
+				}
+			});
+	</script>
+</html>

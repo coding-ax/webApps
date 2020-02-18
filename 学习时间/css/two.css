@@ -1,0 +1,44 @@
+body{
+	background-image: url(../img/back.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+#app5{
+	border: 5px dotted #00FFFF;
+	width: 80%;
+	height: 25rem;
+	position: relative;
+	left: 10%;
+	top: 31.25rem;
+	font-size: 50px;
+	font-family: 楷体;
+	text-shadow: 5px 5px 5px #888888;
+	color: hotpink;
+}
+#out{
+	width: 30%;
+	height: 250px;
+	background-color: #ADFF2F;
+	border-radius: 50%;
+	color: #FF69B4;
+	font-size: 50px;
+	font-family: 宋体;
+	position: relative;
+	left: 32%;
+	top: 32rem;
+	border: 15px outset ;
+	box-shadow: 10px 10px 5px #888888;
+	border-color: #00FFFF;
+}
+#font{
+	position: relative;
+	width: 80%;
+	left: 15%;
+	top: 100px;
+	
+}
+#out:hover{
+	transition: 2s;
+	transform: rotate(360deg);
+	background-color: aquamarine;
+}

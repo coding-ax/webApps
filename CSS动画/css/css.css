@@ -1,0 +1,38 @@
+#back{
+	background-color: aqua;
+	width: 150px;
+	height: 150px;
+	position: relative;
+	left: 40%;
+	top: 150px;
+	border: 10px outset chartreuse;
+	box-shadow: 10px 10px 5px #888888;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 140px;
+	font-size: 25px;
+	font-family: 楷体;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-origin:content-box;
+	animation: myAvs ;
+	animation-duration: 1s;
+	animation-timing-function: ease-in-out;
+	animation-delay: 2s;
+	animation-iteration-count: infinite;
+	
+}
+#xuexi{
+	position: relative;
+	top: -120px;
+}
+@keyframes myAvs{
+	from{
+		background-color: #00FFFF;
+	}
+	to{
+		background-color: chartreuse;
+	}
+	
+}
+

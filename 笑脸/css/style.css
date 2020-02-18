@@ -1,0 +1,121 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	min-height: 100vh;
+	background: rgb(256,256,256);
+}
+.face{
+	position: relative;
+	width:250px;
+	height: 300px;
+	border-radius:50% ;
+	background: pink;
+	display: flex;
+	justify-content: center ;
+	align-items:center ;
+}
+.face::before{
+	content: '';
+	position: absolute;
+	background: red;
+	top: 180px;
+	width: 150px;
+	height: 70px;
+	border-bottom-left-radius:70px ;
+	border-bottom-right-radius: 70px;
+	transition: 0.5s;
+	
+}
+.face:hover::before{
+	top: 210px;
+	width: 150px;
+	height: 20px;
+	background: red;
+	border-bottom-left-radius:0px ;
+	border-bottom-right-radius: 0px;
+}
+.eye{
+	position: relative;
+	top: 0;
+	display: flex;
+}
+.eyes{
+	display: flex;
+	top: -40px;
+	position: relative;
+}
+.eyes .eye{
+	position: relative;
+	width: 80px;
+	height: 80px;
+	display: block;
+	background: white;
+	margin: 0 15px;
+	border-radius:50% ;
+}
+.eyes .eye::before{
+	content: '';
+	position: absolute;
+	top: 50%;
+	left:25px;
+	transform: translate(-50%,-50%);
+	width: 40px;
+	height: 40px;
+	background: #333;
+	border-radius:50% ;
+}
+/* .hairs{
+	display: flex;
+	top: -100px;
+	left:100px;
+	position: relative;
+	margin: 0px 0px 0px 0px;
+	padding: 0px;
+	width: 100px;
+	height: 10px;
+} */
+.hair{
+	position: relative;
+	top: -100px;
+	left: 100px;
+	display: block; 
+
+	margin: 0px;
+	height: 10px;
+	background: black;
+	padding: 0px;
+}
+/* .hairs .hair{
+	position: relative;
+	width: 1000px;
+	height: 10px;
+	display: block;
+	background: black;
+	
+	margin:8px 5px 20px 15px;
+	
+} */
+.meimaos{
+	background-color:pink;
+	width: 180px;
+	height: 20px;
+	position: absolute;
+	top: 50px;
+}
+	
+.meimao{
+	background-color: #000000;
+	width: 80px;
+	height: 10px;
+	float: left;
+	margin: 5px;
+	border-radius: 30%;
+	transform: rotate(2deg);
+	
+}

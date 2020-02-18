@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>点击图切换板块</title>
+		<link rel="stylesheet" type="text/css" href="css/one.css"/>
+	</head>
+	<body>
+		<div id="big">
+			<div class="header">
+				<div class="basic"  onclick="close('one1')">
+				1
+				</div>
+				<div class="basic"  onclick="close('one2')">
+				2
+				</div>
+				<div class="basic"  onclick="close('one3')">
+				3
+				</div>
+				<div class="basic"  onclick="close('one4')">
+				4
+				</div>
+			</div>
+			<div class="footer">
+				<div class="foot" id="one1" style="display: block;">
+					<img src="img/1%20(18).jpg">
+				</div>
+				<div class="foot" id="one2" style="display: none;">
+					<img src="img/1%20(19).jpg">
+				</div>
+				<div class="foot" id="one3" style="display: none;">
+					<img src="img/1%20(20).jpg">
+				</div>
+				<div class="foot" id="one4" style="display: none;">
+					<img src="img/1%20(21).jpg" >
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		<script>
+			// console.log(undefined==null);//true
+			//undefined派生自null
+			var all=document.getElementsByClassName("basic");
+			console.log(all);
+			for(let i=0;i<all.length;i++){
+				all[i].addEventListener('mouseover',function(){close("one"+(i+1))})
+			}
+			function close(name){
+				if(name==""){
+					alert("输入有误！");
+					return;
+				}
+				else{
+					for(let i=1;i<=4;i++){
+						let temp="one"+i;
+						let current=document.getElementById(temp);
+						if(temp==name){
+							current.style.display="block";
+						}
+						else{
+							current.style.display="none";
+						}
+						
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

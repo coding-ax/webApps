@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				border: none;
+				list-style: none;/*去掉点点*/
+				background: url(img/beijing.jpg) no-repeat;
+				background-size:cover;
+				
+			}
+			
+			html,body,ul{
+				width: 100%;
+				height: 100%;
+			}
+			
+			#ps{
+				position: relative;
+			}
+			#ps li{
+				width:100px;
+				height: 100px;
+				box-shadow: 0 0 10px #000;
+				position:absolute;
+				transition: all 1s;
+			}
+			#ps li.current{
+				left:50% !important;
+				top:50% !important;
+				transform: rotate(0deg) translate(-50%,-50%) scale(2,2) !important;
+				z-index: 99;
+			}
+			img {
+				width:200px;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="ps"></ul>
+		<script src="js/underscore.js"></script>
+		<script>
+			window.onload=function(){
+				var ul=document.getElementById('ps');
+				for(let i=1;i<=10;i++){
+				var li=document.createElement('li');
+				ul.appendChild(li);
+				var img=document.createElement('img');
+				img.setAttribute('src','img/'+i+'.jpg');
+				li.appendChild(img);
+				}
+				
+				var allLis=ul.children;
+				
+				var screenW=document.documentElement.clientWidth-250;
+				var screenH=document.documentElement.clientHeight-300;
+				
+				for(let i=0;i<allLis.length;i++){
+					var li=allLis[i];
+					
+					li.style.left=Math.random()*screenW+'px';
+					li.style.top=Math.random()*screenH+'px';
+					
+					li.style.transform='rotate('+Math.random()*360+'deg)';
+					
+					li.onmouseover=function(){
+						for(let j=0;j<allLis.length;j++){
+							allLis[j].className='';
+						}
+						this.className='current';
+					}
+				}
+				
+				
+			}
+		</script>
+	</body>
+</html>

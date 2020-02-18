@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<script>
+	/* 		// var a = [];
+			// for (let i = 0; i < 10; i++) {
+			//   a[i] = function () {
+			// 	  let i='aaa';
+			//     console.log(i);
+			//   };
+			// }
+			// a[6](); // 6
+			{{{
+				let a=10;
+				//console.log(b);//reference false;
+				{
+					let b=a;
+					a=100;
+					console.log(b);//10
+				}
+				console.log(a);//100
+				}}}	
+				
+				// function f() { console.log('I am outside!'); }
+				
+				// (function () {
+				//   if (false) {
+				//     // 重复声明一次函数f
+				//     function f() { console.log('I am inside!'); }
+				//   }
+				
+				//   f();
+				// }());
+					//1.错误写法
+			/* if(true)
+			let a=10;
+			console.log(a); */
+			
+			//2.正确写法:
+			/* if(true){
+				let a=10;
+				console.log(a);
+			}
+			
+			const foo={};
+			foo.shuxing="aaa";
+			console.log(foo.shuxing);//aaa
+			
+			 */ 
+/* 			const a=[];
+			a[0]=1;
+			console.log(a); */
+			//本质上,const只保证变量指向的内存地址所保存的数据不得改动,对于简单类型的数据
+			//值就保存在变量指向的内存地址,因此等同于常量.
+			//但是对于复合类型的数据(对象和数组),变量指向的是内存地址,保存的只是一个指向实际数据的指针
+			//const只能保证这个指针是固定的(即总是指向另一个固定的地址),至于其指向的数据结构是不是
+			//可变的,就完全不能保证了,要真正冻结一个对象应该使用Object.freez()方法
+			
+			//除了将对象本身冻结，对象的属性也应该冻结。下面是一个将对象彻底冻结的函数。
+			
+			/* var constantize = (obj) => {
+			  Object.freeze(obj);
+			  Object.keys(obj).forEach( (key, i) => {
+			    if ( typeof obj[key] === 'object' ) {
+			      constantize( obj[key] );
+			    }
+			  });
+			}; */
+
+			
+			
+		
+			/* 	{let a="dd";{
+					let a="gg";
+					console.log(a);//gg
+				}} */
+/* 				var a = [];
+				for (var i = 0; i < 10; i++) {
+				  a[i] = function () {
+					  
+				    console.log(i);
+				  };
+				}
+				//i=100;
+				a[5](); //10 */
+				
+				/* var a=1;//var 和function定义的全局变量依旧是顶层对象（window）的属性
+				console.log(window.a);
+				
+				let bd=1;
+				console.log(window.bd);//undefined  
+				//ES6一共有六种声明变量的方法:var function let const class import
+				 */
+				var a=[]; 
+				for(let i=0;i<10;i++){
+					let i=10;
+					a[i]=function(){
+						console.log(i);
+					};
+				}
+				console.log(a.length);	
+				//a[6]();
+		</script>
+	</body>
+</html>

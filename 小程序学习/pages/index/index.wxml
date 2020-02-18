@@ -1,0 +1,8 @@
+<!--index.wxml-->
+  <view class="container" >
+   <image class="avatar" src="../../image/avatar/avatar-3.jpg"></image>
+	<text class="motto">你好</text>
+	<view class="journey-container" catchtap="onTapJump" >
+		<text class="journey">查看文章</text>
+	</view>
+  </view>

@@ -1,0 +1,39 @@
+body{
+	background-image: url(../img/back.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-attachment: fixed;
+	
+}
+#begin{
+	border: 5px outset greenyellow;
+	width: 50%;
+	height: 18.75rem;
+	border-radius: 50%;
+	background-color: cyan;
+	position: relative;
+	left: 23%;
+	top: 23.75rem;
+	box-shadow: 0.625rem 0.625rem 0.3125rem #888888;
+	
+}
+@keyframes mybutton{
+	form{
+		background-color: cyan;
+	}
+	to{
+		background-color: aquamarine;
+	}
+}
+#begin:hover{
+	transition: 2s;
+	transform: rotate(360deg);
+	background-color: aquamarine;
+}
+#study{
+	font-size: 60px;
+	position: relative;
+	width: 100%;
+	left: 25%;
+	top: 6.25rem;
+}

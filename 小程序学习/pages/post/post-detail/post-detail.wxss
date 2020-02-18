@@ -1,0 +1,82 @@
+/* pages/post/post-detail/post-detail.wxss */
+.head-image{
+	width: 100%;
+	position: relative;
+	top:-200rpx;
+}
+
+.container{
+	align-content:flex-start;
+	display: flex;
+	flex-direction: column;
+	margin: 30rpx;
+}
+.title{
+	font-size: 40rpx;
+	width: 100%;
+	position: relative;
+	top:-180rpx;
+
+}
+.author-date{
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	position: relative;
+	top: -160rpx;
+	align-items: center;
+}
+.author-box{
+	width: 80%;
+	float: left;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.avatar{
+	width:100rpx;
+	height: 100rpx;
+	border-radius: 50%;
+}
+.author{
+	height: 50rpx;
+	width: 80rpx;
+	margin-left: 15rpx;
+}
+.date{
+    height: 50rpx;
+	width: 100px;
+	
+}
+.detail{
+	margin: 15rpx;
+	color: #666;
+	font-size:40rpx;
+	font-family: 楷体;
+	position: relative;
+	top: -120rpx;
+	letter-spacing: 3rpx;
+}
+.tool{
+	display: flex;
+	flex-direction: row;
+	border: 5px outset yellow;
+	width: 50%;
+	align-items: center;
+	justify-content: center;
+	margin-top:0 ;
+	position: relative;
+	top: -100rpx;
+	box-shadow: 10px 5px 5px #888888;
+}
+.tool-item{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+.tool image{
+	width: 50rpx;
+	height: 50rpx;
+	margin-right:10rpx ;
+}

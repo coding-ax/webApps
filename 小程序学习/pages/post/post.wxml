@@ -1,0 +1,25 @@
+<view>
+	<import src="post-item/post-item-tpl.wxml" />
+	<swiper indicator-dots="true" indicator-color="white" autoplay="true" interval="2000" circular="true">
+		<swiper-item>
+			<image src="../../image/post/post-1.jpg"></image>
+		</swiper-item>
+		<swiper-item>
+			<image src="../../image/post/post-2.jpg"></image>
+		</swiper-item>
+		<swiper-item>
+			<image src="../../image/post/post-3.jpg"></image>
+		</swiper-item>
+		<swiper-item>
+			<image src="../../image/post/post-4.jpg"></image>
+		</swiper-item>
+	</swiper>
+	<block wx:for="{{postList}}" wx:for-item="item" wx:for-index="idx">
+		<view catchtap="onTapToDetail" data-post-id="{{item.postId}}">
+		<template  is="postTpl" data="{{...item}}"/>
+		</view>
+	</block>
+	<!-- <block wx:for="{{postList}}" wx:for-item="item" wx:for-index="idx">
+		<include src="post-item/post-item-tpl.wxml" />
+	</block> 无法引入带template的模板 -->
+</view>

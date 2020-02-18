@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<label>上传图片：</label>
+		<input type="file" id="file" />
+		<!-- jpg,png,jpeg,gif -->
+	</body>
+	<script>
+		window.onload=function(){
+			//1.获取标签
+			var file=document.getElementById('file');
+			
+			//2.监听作用域的变化
+			file.onchange=function(){
+				// console.log('1231');
+				//2.1获取用户上传的内容
+				//console.log(this.value);
+				//console.log(this.files);
+				var path=this.value;
+				//2.2截取
+				var suffic=path.substr(path.lastIndexOf('.')+1);
+			//	console.log(suffic);
+				
+				//2.3大小写统一
+				var lowerSuffic=suffic.toLowerCase();
+				
+				//2.4判断
+				if(lowerSuffic==='jpg'||lowerSuffic==='gif'
+				||lowerSuffic==='png'||lowerSuffic==='jpeg'){
+					alert('上传图片格式正确');
+				}
+					
+				else{
+				alert('上传图片不正确');
+			}
+		}
+		}
+	</script>
+</html>

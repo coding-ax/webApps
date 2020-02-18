@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/talk.css"/>
+	</head>
+	<body>
+		<!-- <audio src="#" controls>
+			
+		</audio> -->
+		<div id="app">
+			<div class="mechal-talk-box">
+				<ul>
+					<li v-for="item in machalMessages" >
+						<span v-bind:class="{'mechalSay':item.isMachal,peopleSay:item.isPeople}">{{ item.text }}</span>
+					</li>
+					<!-- <li>
+						<span class="people-say">hi!</span>
+					</li>
+					<li>
+						<span class="mechal-say">hello!</span>
+					</li>
+					<li>
+						<span class="people-say">hi!</span>
+					</li> -->
+				</ul>
+			</div>
+			<br>
+			<div class="input-div">
+				<input type="text" placeholder="说点什么吧……" class="input-box" v-model="info" @keyup.enter="setMessage" />
+				<div class="send" @click="setMessage">发送</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var app=new Vue({
+				el:"#app",
+				data:{
+					//要聊的内容跟
+					info:'',
+					//消息集合：
+					machalMessages:[
+						{
+							text:'你好',
+							isPeople:false,
+							isMachal:true
+						},
+						{
+							text:'人工智障',
+							isPeople:true,
+							isMachal:false
+						},
+						{
+							text:'因为ajax跨域，所以我只会加感叹号',
+							isPeople:false,
+							isMachal:true
+						}
+					],
+					peopleMessages:[],
+					isPeople:false,
+					isMachal:false
+				},
+				methods:{
+					setMessage:function(){
+						var that=this;
+						let peopleSay={
+							text:this.info,
+							isPeople:true,
+							isMachal:false
+						};
+						this.info=''
+						this.machalMessages.push(peopleSay);
+						window.scrollTo({
+						  top:document.documentElement.clientHeight+1000000,
+						  behavior:'smooth'
+						})
+						setTimeout(function() {
+					
+							that.machalMessages.push({
+							text:peopleSay.text+'!',
+							isMachal:!peopleSay.isMachal,
+							isPeople:!peopleSay.isPeople
+							})
+							window.scrollTo({
+							  top:document.documentElement.clientHeight,
+							  behavior:'smooth'
+							})
+						}, 1000);
+						
+						/* setInterval((function(){  
+							var i=0;    return function(){        
+								window.scrollTo(0,i++)
+						    }
+						})(), 200) */
+						
+						/* axios.get('https://api.lovelive.tools/api/SweetNothings').then(function(response){
+							   console.log(response);
+							   that.info='';
+						   },function(error){
+							   console.log(error)
+						   }) */
+						  //fetch("https://api.lovelive.tools/api/SweetNothings").then((res)=>{res.json()}).then((res)=>{console.log(res)})
+						  
+						  
+						  
+						  /* this.$http = axios;
+						  this.$http.jsonp('http://openapi.tuling123.com/openapi/api/v2', {
+						      params: {
+							  "reqType":0,
+							      "perception": {
+							          "inputText": {
+							              "text": this.info
+							          },
+							      },
+							      "userInfo": {
+							          "apiKey": "a7d5ac4d3daa46aea847f28e336f74b9",
+							          "userId": "0123456789"
+							      }
+						   },
+						      jsonp: 'handleCallback'
+						  }).then((res) => {
+						      console.log(res); 
+						  }) */
+					}
+						
+					
+				}
+			})
+			
+			/*
+	    智能机器人接口，使用需要注册，官网地址是 http://www.turingapi.com/
+	
+	    请求地址：http://www.tuling123.com/openapi/api
+	    请求方法：post
+	    请求参数：key,info
+	
+	参数名 	参数说明 	备注
+	key 	申请的机器人 key 	不能为空
+	info 	要跟机器人聊的内容 	
+	
+	    响应内容：聊天的信息
+	
+	{ "code": 100000, "text": "你好吗" }
+	
+	测试用 key：如果次数都用完了建议自己注册一个机器人即可，免费的
+	
+	    2162602fd87240a8b7bba7431ffd379b
+	    a618e456f0744066840ceafb6a249d9d
+	    d7c82ebd8b304abeacc73b366e42b9ed
+	    7b1cf467c0394dd5b3e49f32663f8b29
+	    9fbb98effab142c9bb324f804be542ba
+
+	*/
+/*   axios.post("http://www.tuling123.com/openapi/api",{
+	   key: '2162602fd87240a8b7bba7431ffd379b',
+	   info:'你好呀！'
+   }).then(function(response){
+	   console.log(response)
+   },function(error){
+	   console.log(error)
+   }) */
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,229 @@
+/* pages/post/post-comment/post-comment.wxss */
+.comment-detail-box{
+	margin: 30rpx;
+	margin-bottom: 120rpx;
+}
+.comment-title{
+	border-bottom:4rpx solid  #989791 ;
+	color: #989791;
+} 
+.comment-item-header{
+	margin-top: 40rpx;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.left-img image{
+	border-radius: 50%;
+	width: 100rpx;
+	height: 100rpx;
+	margin-right: 40rpx;
+}
+.comment-txt{
+	margin-bottom:15rpx ;
+}
+.comment-img{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.comment-img image{
+	width:200rpx;
+	height: 200rpx;
+	margin: 6rpx;
+}
+.comment-time{
+	margin-top:40rpx;
+	font-size: 30rpx;
+	color: #d1d1d1;
+}
+.comment-voice-item{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	border: 3px solid #cdcdd4;
+	border-radius: 4px;
+}
+.comment-voice{
+	width: 30%;	
+	height: 60rpx;
+}
+.comment-voice-item image{
+	width: 70rpx;
+	height: 40rpx;
+	margin-right: 50rpx;
+}
+
+
+/*
+自定义评论框CSS
+*/
+/* .input-box{
+	border: 5px solid;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	width: 100%;
+	background-color: #dadada;
+} */
+/*官方*/
+.input-box{
+    position:fixed;
+    bottom: 0;
+    left:0;
+    right: 0;
+    background-color: #EAE8E8;
+    border-top:1rpx solid #D5D5D5;
+    min-height: 100rpx;
+    z-index: 1000;
+}
+.input-box .send-msg-box{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding: 20rpx 0;
+}
+.input-box .send-more-box{
+    margin: 20rpx 35rpx 35rpx 35rpx;
+}
+.input-box .input-item{
+    margin:0 5rpx;
+    flex:1;
+    width: 0%;
+    position: relative;
+}
+.input-box .input-item .comment-icon{
+    position: absolute;
+    left:5rpx;
+    top:6rpx;
+}
+
+.input-box .input-item .input{
+    border: 1rpx solid #D5D5D5;
+    background-color: #fff;
+    border-radius: 3px;
+    line-height: 65rpx;
+    margin:5rpx 0 5rpx 75rpx ;
+    font-size: 24rpx;
+    color: #838383;
+    padding: 0 2%;
+}
+.input-box .input-item .keyboard-input{
+    width: auto;
+    max-height: 500rpx;
+    height: 65rpx;
+    word-break:break-all;
+    overflow:auto;
+}
+.input-box .input-item .speak-input{
+    text-align: center;
+    color: #212121;
+    height: 65rpx;
+}
+
+.input-box .input-item .recoding{
+    background-color: #ccc;
+}
+
+.input-box .input-item .comment-icon.speak-icon{
+    height: 62rpx;
+    width: 62rpx;
+}
+.input-box .input-item .comment-icon.keyboard-icon{
+    height: 60rpx;
+    width: 60rpx;
+    left:6rpx;
+}
+.input-box .add-icon{
+    margin:0 5rpx;
+    height: 65rpx;
+    width: 65rpx;
+    transform: scale(0.9);
+    margin-top: 2px;
+}
+.input-box .submit-btn{
+    font-size: 24rpx;
+    margin-top: 5rpx;
+    margin-right: 8rpx;
+    line-height: 60rpx;
+    width: 120rpx;
+    height: 60rpx;
+    background-color: #4A6141;
+    border-radius:5rpx;
+    color: #fff;
+    text-align: center;
+    font-family:Microsoft Yahei;
+}
+
+
+.send-more-box .more-btn-item{
+    display: inline-block;
+    width: 110rpx;
+    height: 145rpx;
+    margin-right: 35rpx;
+    text-align: center;
+}
+
+.more-btn-main{
+    width: 100%;
+    height:60rpx;
+    text-align: center;
+    border:1px solid #D5D5D5;
+    border-radius: 10rpx;
+    background-color: #fbfbfc;
+    margin: 0 auto;
+    padding:25rpx 0
+}
+.more-btn-main image{
+    width: 60rpx;
+    height: 60rpx;
+}
+.send-more-box .more-btn-item .btn-txt{
+    color: #888888;
+    font-size: 24rpx;
+    margin:10rpx 0;
+}
+
+.send-more-result-main{
+    margin-top: 30rpx;
+}
+.send-more-result-main .file-box{
+    margin-right: 14rpx;
+    height: 160rpx;
+    width: 160rpx;
+    position: relative;
+    display: inline-block;
+}
+
+.send-more-result-main .file-box.deleting{
+    animation:deleting 0.5s ease;
+    animation-fill-mode: forwards;
+}
+
+@keyframes deleting {
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(0);
+    }
+}
+
+.send-more-result-main image{
+    height: 100%;
+    width: 100%;
+}
+.send-more-result-main .remove-icon{
+    position: absolute;
+    right: 5rpx;
+    top: 5rpx;
+}
+
+.send-more-result-main .file-box .img-box {
+    height: 100%;
+    width: 100%;
+}
+

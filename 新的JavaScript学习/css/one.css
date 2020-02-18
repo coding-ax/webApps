@@ -1,0 +1,39 @@
+#big{
+	width: 50%;
+	height: 500px;
+	position: relative;
+	top: 180px;
+	left: 20%;
+}
+.header{
+	margin: 0px;
+	height: 50px;
+	position: relative;
+}
+.basic{
+	margin: 2%;
+	width: 15%;
+	border: 0.3125rem outset #888888;
+	float: left;
+	text-align: center;
+	cursor: pointer;
+	color: coral;
+	background-color: aquamarine;
+}
+.basic:hover{
+	background-color: aqua;
+}
+.footer{
+	width: 80%;
+	position: relative;
+	left: 10%;
+}
+.foot{
+	float: left;
+	width: 100%;
+	
+}
+img{
+	position: relative;
+	width: 100%;
+}

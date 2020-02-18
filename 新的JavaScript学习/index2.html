@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			body{
+				background-color: #00FFFF;
+			}
+		</style>
+	</head>
+	<button onclick="move('close')">关闭</button>
+	<button onclick="move('open')">打开</button>
+	<button onclick="move('move')">调位</button>
+	<button onclick="move('resize')">大小</button>
+	<body>
+		<script>
+			var X=window.screenX;
+			var Y=window.screenY;
+			var left=window.screenLeft;
+			var right=window.screenTop;
+			/* alert("X="+X+"\n"+"Y="+Y)
+			alert("left="+left+"\n"+"right="+right) */
+			
+			
+			function move(catagory){
+				//window.resizeTo(100,100)
+				/* var screenH=document.documentElement.clientHeight;
+				var screenW=document.documentElement.clientWidth;
+				console.log('长度='+screenW);
+				console.log('宽度='+screenH); */
+				var newWindow;
+				newWindow=window.open("https://www.baidu.com/","wroxWindow","height=400,width=400,left=100,top=100,resizable=false");
+				switch(catagory){
+				case 'open':
+				newWindow.close();
+				newWindow=window.open("https://www.baidu.com/","wroxWindow","height=400,width=400,left=100,top=100,resizable=false");
+				
+				break;
+				case 'close':
+				newWindow.close();
+				break;
+				case 'move':
+				newWindow.moveTo(500,500);
+				break;
+				case 'resize':
+				newWindow.resizeTo(300,300)
+				break;
+				}
+				
+			}
+			
+		</script>
+	</body>
+</html>

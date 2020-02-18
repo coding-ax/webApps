@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>电商位置切换</title>
+		<style>
+			*{margin: 0;padding: 0;list-style: none;}
+			#box{
+				border: 1px solid #cccccc;
+				width: 1280px;
+				height: 140px;
+				padding-top:360px;
+				margin: 100px; 
+				background: url("img/1.jpg") no-repeat;
+			}
+			ul{
+				display: flex;
+				justify-content:center;
+				align-items:center ;
+				cursor: pointer;
+			}
+			img{
+				width: 240px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+				<ul >
+				<li id="li01"><img id="small1" src="img/1.jpg"/></li>
+				<li id="li02"><img id="small2" src="img/2.jpg"/></li>
+				<li id="li03"><img id="small3" src="img/3.jpg"/></li>
+				<li id="li04"><img id="small4" src="img/4.jpg"/></li>
+				<li id="li05"><img id="small5" src="img/5.jpg"/></li>
+				</ul>
+		</div>
+		<script>
+			window.onload=()=>{
+				//1.获取标签:
+				var box=document.getElementById("box");
+				var arrLis=box.getElementsByTagName('li');
+				for (let i=0;i<arrLis.length;i++) {
+						var sLi=arrLis[i];
+						((tag)=>{
+							sLi.onmouseover=()=>{
+								box.style.background='url("img/'+tag+'.jpg") no-repeat'
+							}
+						})(i+1)
+				} 
+
+				
+				
+			}
+		</script>
+	</body>
+</html>

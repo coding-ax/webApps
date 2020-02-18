@@ -1,0 +1,225 @@
+body {
+	background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1582028068217&di=0d13019dd70af05c5a0501ea816ec279&imgtype=0&src=http%3A%2F%2Fe.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2Fd1160924ab18972b48067763e4cd7b899e510a5e.jpg');
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-size: 20px;
+	font-weight: bold;
+	font-family: 楷体;
+}
+
+#app {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	/* 	border: 5px solid black; */
+	width: 100vw;
+	height: 100vh;
+}
+
+ul {
+	list-style: none;
+}
+
+.play {
+	border: 5px solid #55aaff;
+	width: 70vw;
+	height: 70vh;
+	border-radius: 15px;
+	background-color: #55AAFF;
+}
+
+.header {
+	display: flex;
+	flex-direction: row;
+	/* border: 5px solid black; */
+	border-bottom: 2px solid #888888;
+	background-color: #55aaff;
+	height: 10%;
+	justify-content: left;
+	align-items: center;
+
+}
+
+.logo {
+	font-size: 25px;
+	font-weight: bold;
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+	align-items: center;
+	margin-right: 30%;
+	color: white;
+	/* border: 5px solid black; */
+}
+
+.logo img {
+	width: 20%;
+	margin-left: 4%;
+	margin-right: 4%;
+}
+
+.searchBox {
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+	align-items: center;
+	/* border: 5px solid black; */
+	height: 100%;
+	width: 50%;
+
+}
+
+.searchBox input {
+	height: 60%;
+	width: 80%;
+	font-size: 20px;
+	background-color: #86c9ed;
+	border-radius: 20px;
+}
+
+.submitButton {
+	border: 5px outset #55AAFF;
+	height: 60%;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.bodyContain {
+	display: flex;
+	flex-direction: row;
+	height: 80%;
+	width: 100%;
+}
+
+.songList {
+	width: 25%;
+	overflow-y: scroll;
+}
+
+.playerImg {
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.playerImg img {
+	width: 20vw;
+	height: 20vw;
+	display: flex;
+	flex-direction: column;
+	border-radius: 50%;
+	margin: 5%;
+	margin-top: 2%;
+	/* animation: 1s dance;
+	animation-iteration-count: infinite; */
+}
+
+.danceBegin{
+	animation: 1s dance;
+	animation-iteration-count: infinite;
+}
+
+.commentList {
+	width: 25%;
+	overflow-y: scroll;
+	color: #888888;
+}
+
+.commentList img {
+	width: 3vh;
+	height: 100%;
+	border-radius: 50%;
+	margin: 1%;
+}
+
+.playerControll {
+	width: 100%;
+}
+
+.headWithIcon {
+	color: #ff5500;
+	height: 3vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+	align-items: center;
+	margin-bottom: 2vh;
+	overflow-x: hidden;
+	font-size: 12px;
+}
+
+.commentContain {
+	font-size: 15px;
+	display: block;
+	margin-top: 1vh;
+	margin-bottom: 1vh;
+	overflow: hidden;
+}
+
+.songBox {
+	color: coral;
+	width: 100%;
+	margin-top: 5px;
+}
+
+.songItem{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+	width: 100%;
+}
+
+.songItem img{
+	width: 15px;
+	height: 15px;
+	border-radius:50%;
+}
+
+.songItem a {
+	display: block;
+	text-decoration: none;
+	margin: 1vw;
+}
+
+.songItemplaying a {
+	color: white;
+}
+
+.songItem a:hover {
+	color: white;
+}
+
+@keyframes dance {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.mubu {
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	left: 0;
+	top: 0;
+	background-color: black;
+	background-color: rgba(0, 0, 0, 0.4);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}

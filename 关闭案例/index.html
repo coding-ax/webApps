@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>关闭案例</title>
+		<style>
+		#close{
+			position: absolute;
+			left:590px;
+			top:7px;
+			width: 20px;
+		}
+		#big{
+			width:600px;
+			display: block;
+		}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<a title="限时秒杀!" href="#">
+			<img id="big" src="img/timebuy.jpg"  />
+			</a>
+			<a title="关闭" href="#">
+							<img id="close" src="img/wrong.jpg" />
+			</a>
+		</div>
+		<script>
+			var close=document.getElementById("close");
+			close.onclick=()=>{
+				close.parentElement.parentElement.remove();
+			}
+		</script>
+	</body>
+</html>

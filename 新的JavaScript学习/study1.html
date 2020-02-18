@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+				/* var person=new Object();
+				person.name="AX";
+				person.age=20;
+				person.ID="430922200008116416";
+				person.sex="man";
+				console.log(person);
+				var people="hello";
+				console.log(people instanceof Object);//false;
+				console.log(person instanceof Object);//true;
+				console.log(typeof person)//object
+				console.log(typeof person.name)//string
+				function check(args){
+					if(args.name){
+						alert(args.name)
+					}
+					if(args.age){
+						alert(args.age)
+						alert(typeof args.age);
+					}
+				}
+				function People(name1,age1){
+					return {
+						name:name1,
+						age:age1
+					}
+				}
+				var ax=People("AX",19);
+				//check(ax);
+				
+				var array=new Array();
+				function cmp(val1,val2){
+					return val1-val2;
+				}
+				function randomArray(count){
+					if(count<=0)
+					{
+						return [];
+					}
+					else{
+						var ax=new Array();
+						for(let i=0;i<count;i++){
+						ax.push(parseInt(Math.random()*100));
+						}		
+						ax.sort(cmp)
+						return ax;
+					}
+			
+					}
+				array=randomArray(10);
+				alert(array.join("<"));
+				array2=randomArray(10);
+				array2=array2.slice(5);
+				array2.splice(2,0,"hello","fly away")
+				alert(array.concat(array2).sort(cmp).reverse().join('>')); */
+				//arguments.callee(num) arguments.callee()指向函数对象
+				//函数对象中的caller对象指向的是这个函数的源码
+				var i=1;
+				
+				function inner(){
+					// arguments.callee();
+					// document.write("i="+i+++'<br>');
+					alert(arguments.callee().caller);
+				}
+			
+				function outer(){
+					inner();
+				}
+				
+				//工厂模式：
+				function People(name,age,ID){
+					var o=new Object();
+					o.name=name;
+					o.age=age;
+					o.ID=ID;
+					o.getName=function(){
+						alert(this.name);
+					}
+					o.getAge=function(){
+						alert(this.age);
+					}
+					o.getID=function(){
+						alert(this.ID);
+					}
+					return o;
+				}
+				var person1=People("AX",19,666666);
+				//person1.getAge();
+				
+				//构造函数:
+				function PeopleAgain(name,age,ID){
+					this.name=name;	
+					this.age=age;
+					this.ID=ID;
+					this.getName=function(){
+						alert(this.name);
+					}
+					this.getAge=function(){
+						alert(this.age);
+					}
+					this.getID=function(){
+						alert(this.ID);
+					}
+				
+				}
+				var person2=new PeopleAgain("ax",20,666667)
+				//person2.getName();
+				alert(person2.prototype);
+			//区别：
+			/* 
+			 1.没有显示定义新的对象
+			 2.调用的是this指针
+			 3.没有return属性
+			 4.创建时使用了new运算符
+			 */
+			
+			//原型模式：
+			function PeopleAgainAndAgain(){
+				
+			}
+			PeopleAgainAndAgain.prototype.name="hello";
+			PeopleAgainAndAgain.prototype.age=19;
+			PeopleAgainAndAgain.prototype.ID=156;
+			PeopleAgainAndAgain.prototype.sayName=function(){
+				alert(this.name);
+			};
+			var person3=new PeopleAgainAndAgain();
+			person3.sayName();
+		</script>
+	</body>
+</html>

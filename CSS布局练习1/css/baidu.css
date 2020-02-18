@@ -1,0 +1,49 @@
+div{
+	width: 150px;
+	height: 150px;
+	background-color: aqua;
+	border: 5px outset red;
+}
+#one{
+	width: 70%;
+	height: 50px;
+	position: relative;
+	top: 50px;
+	align-items: center;
+	left: 15%;
+	background-color: black;
+}
+#two{
+	width: 60%;
+	height: 500px;
+	background-color: aquamarine;
+	position: absolute;
+	left: 20%;
+	top: 200px;
+}
+.img{
+	position: relative;
+	float: left;
+	left: 10%;
+	top: 50px;
+	padding:0 ;
+	margin: 1%;
+	width: 25%;
+	height: 150px;
+}
+#three{
+	background-color: wheat;
+	width:700px ;
+	position: absolute;
+	top: 800px;
+	left: 20%;
+	height: 700px;
+}
+.img1{
+	position: relative;
+	margin: 5px;
+	float: left;
+	left: 25px;
+	width: 200px;
+	top: 100px;
+}

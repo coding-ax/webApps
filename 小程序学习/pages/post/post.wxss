@@ -1,0 +1,2 @@
+/* wxss */
+@import "post-item/post-item-tpl.wxss";

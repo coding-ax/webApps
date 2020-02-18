@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>二维码显示与隐藏</title>
+		<style>
+			#e_coder{
+				width:50px;height:50px;
+				background: url("img/github.png") no-repeat;
+				position: fixed;top: 40%;left: 0;cursor: pointer;
+			}
+			#e_app{
+				position: absolute;left: 50px;top: -50px;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="e_coder">
+			<div id="e_app">
+				<img src="img/wechat.png" alt="二维码" width="150" />
+			</div>
+		</div>
+		<script>
+			window.onload=()=>{
+				//1.获取需要的标签
+				var e_coder=document.getElementById("e_coder");
+				var e_app=document.getElementById("e_app");
+				
+				//2.监听鼠标进入
+				e_coder.onmouseover=()=>{
+				//	alert(0);
+				//3.1.改变背景图片:
+				e_coder.style.background='url("img/5.jpg") no-repeat';
+				e_app.style.display='block';
+				}
+				e_coder.onmouseout=()=>{
+				e_coder.style.background='url("img/github.png") no-repeat';
+				e_app.style.display='none';
+				}
+				
+				//2.2显示二维码:
+				
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>图标切换</title>
+	</head>
+	<body>
+		<img src="img/1.jpg" alt="" width="250" />
+		<script type="text/javascript">
+			window.onload=function(){
+				var logo=document.getElementsByTagName('img')[0];
+				
+				
+				//1.新的事件
+				logo.onmouseover=()=>{
+					console.log('鼠标进入图片');
+					logo.setAttribute("src","img/2.jpg");
+				}
+				logo.onmouseout=()=>{
+					console.log('鼠标离开图片');
+					logo.setAttribute("src","img/1.jpg");
+				}
+				logo.onmousemove=()=>{
+					console.log('鼠标移动');
+					//logo.setAttribute("src","img/1.jpg");
+				}
+				
+			}
+		</script>
+	</body>
+</html>

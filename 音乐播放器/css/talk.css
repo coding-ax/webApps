@@ -1,0 +1,75 @@
+body{
+	background-image: url("https://xgpax.top/wp-content/uploads/2020/02/u23442656673858043177fm26gp0.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: contain;
+	background-position: center center;
+}
+#app{
+	margin-bottom:12vh ;
+}
+.input-div{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	position: fixed;
+	left:0;
+	top:90vh;
+	width: 100vw;
+	height: 10vh;
+	border-top: 5px solid #00aaff;
+	background-color: #00AAFF;
+}
+.input-box{
+	position: relative;
+	left:0;
+	width: 70vw;
+	height: 10vh;
+	border: #00AAFF 2px solid;
+	font-size: 5vh;
+}
+.send{
+	font-size: 5vh;
+	text-align: center;
+	margin-left: 2vw;
+	height: 8vh;
+	width: 20vw;
+	color: white;
+}
+ul{
+	list-style: none;
+	font-size: 5vh;
+}
+li{
+	margin-bottom: 2vw;
+}
+.mechalSay{
+	display: flex;
+	/* border: 5px solid #55ff7f; */
+	border-radius: 2vh;
+	position: relative;
+	left: 0;
+	flex-wrap: wrap;
+	margin-right: 35vw;
+	background-color: #55ff7f;
+	/* border-radius: 15vw; */
+	word-wrap: break-word;
+	word-break: break-all;
+	overflow: hidden;
+}
+.peopleSay{
+	/* border: 5px solid #55ffff; */
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	background-color: #55ffff;
+	/* border-radius: 15vw; */
+	margin-left: 50vw;
+	text-align: right;
+	word-wrap: break-word;
+	word-break: break-all;
+	overflow: hidden;
+	border-radius: 2vh;
+}

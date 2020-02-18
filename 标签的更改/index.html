@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+			哈哈哈
+			<input type="text" />
+			<textarea>
+			</textarea>
+			<div>今天的天气很好！</div>
+			<div>呵呵呵</div>
+		</div>
+		<script>
+			window.onload=function(ev){
+				// var input=document.getElementsByTagName('input')[0];
+				// //console.log(input);
+				// input.value='要下雨了！';
+				
+				// var input=document.getElementsByTagName('textarea')[0];
+				// //console.log(input);
+				// input.value='要下雨了！';
+				
+				var box=document.getElementById('box');
+			//	console.log(box.innerText);
+			//	box.innerText='<div>哈哈哈</div>';
+				console.log(box.innerHTML);
+				box.innerHTML='<div>哈哈哈</div>';
+				
+			} 
+		</script>
+	</body>
+</html>

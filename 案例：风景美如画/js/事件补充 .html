@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="bin">撩课学院</button>
+		<script>
+			var bin=document.getElementById("bin");
+			// bin.onclick=()=>{
+			// 	alert(0);
+			// 	window.location.href='https://home.firefoxchina.cn/';
+			// }
+			//当你不希望事件被覆盖
+			bin.addEventListener('click',()=>{
+				alert(0);
+			})
+			
+			bin.addEventListener('click',()=>{
+				alert(1);
+			})
+			
+			bin.addEventListener('click',()=>{
+				alert(2);
+			})
+		</script>
+	</body>
+</html>

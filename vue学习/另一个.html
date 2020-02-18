@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue</title>
+	</head>
+	<body>
+		<div id="app">
+		<ol>
+			
+				<todo-item 
+				v-for="item in groceryList"
+				v-bind:todo='item'
+				v-bind:key='item.id'>
+				</todo-item>
+		</ol>
+		</div>
+		<div id="app1">
+			<p>{{ message }}</p>
+			<p>{{ reverseMessage }} </p>
+		</div>
+		
+		<script src="js/vue.js"></script>
+		<script>
+			// Vue.component('todo-item',{
+			// 	template:'<li>这是个代办项</li>'
+			// })
+			// var app=new Vue({
+			// 	el:'todo-item'
+			// })
+			// 定义名为 todo-item 的新组件
+			 Vue.component('todo-item', {
+			// props:['todo'],
+			props:['todo'],
+			 template:'<li>{{ todo.text }}</li>'
+			}); 
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					groceryList:[
+						{id:0,text:'dd'},
+						{id:1,text:'ddd'},
+						{id:2,text:'daD'}
+					]
+				}
+			});
+		</script>
+		<script>
+			var app=new Vue({
+				el:'#app1',
+				data:{
+					message:"HELLO"
+				},
+				computed:{
+					reverseMessage:function(){
+					return this.message.split('').reverse().join('')
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
+<!--
+v-once:通过使用 v-once 指令，
+你也能执行一次性地插值，当数据改变时，插值处的内容不会更新。
+但请留心这会影响到该节点上的其它数据绑定：
+!-->

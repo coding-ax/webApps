@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>处处听</title>
+		<link rel="stylesheet" type="text/css" href="css/music.css" />
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<div class="play">
+				<div class="header">
+					<div class="logo">
+						<img src="https://dss0.bdstatic.com/6Ox1bjeh1BF3odCf/it/u=3438481165,1970845286&fm=74&app=80&f=PNG&size=f121,121?sec=1880279984&t=7c1333975198c371732774d54cbeb1e3" />
+						处处听
+					</div>
+					<div class="searchBox">
+						<input type="text" class="search" placeholder="想听什么..." v-model="keywords" @keyup.enter="searchSong" />
+						<div class="submitButton" @click="searchSong">
+							搜索
+						</div>
+					</div>
+				</div>
+				<div class="bodyContain">
+					<div class="songList">
+						搜索结果
+						<div class="songBox">
+							<!-- 	<a href="javascript:;" class="songItem songItemplaying" id="songItemplaying">nihao </a> -->
+							<div  class="songItem" v-for="(song,index) in songArray" :index="index" v-bind:class="{songItemplaying:isPlaying(index)}">
+								<a href="javascript:;" @click="playMusic(index)">{{song.name}}</a>
+								<img v-if="parseInt(song.mvid)!=0" :index="index" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1582043075984&di=34b5588a3b4aa1844dcfee0867213405&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fitbbs%2F1704%2F24%2Fc37%2F44479535_1493043701594_1024x1024.png" @click="showMV(index)">
+							</div>
+							
+						</div>
+					</div>
+					<div class="playerImg">
+						<div>
+							曲名：{{nowName}}<br />
+							{{singer}}
+							<input type="button" value="播放MV" v-if="mvID!=0" @click="showMV2">
+						</div>
+						<img :src="imgUrl" :class="{danceBegin:nowName!=''?true:false}">
+					</div>
+					<div class="commentList">
+						热门评论
+						<ul>
+							<li v-for="comment in commentList">
+								<div class="comment-container">
+									<div class="headWithIcon">
+										<img :src="comment.user.avatarUrl" class="headIconImg" >
+										<span class="commentIdName">{{comment.user.nickname}}</span>
+									</div>
+									<div class="commentContain">{{comment.content}}</div>
+								</div>
+							</li>
+						</ul>
+
+					</div>
+				</div>
+				<div class="player">
+					<audio controls="controls" :src="playerUrl" class="playerControll" autoplay="autoplay" @ended="nextSong">
+						当前浏览器不支持audio
+					</audio>
+				</div>
+				<div class="mubu" v-show="showMvFlag"  v-on:click="exit()">
+					<div class="mvPlayer">
+						<video width="800" height="" controls="controls" :src="mvUrl" class="videoshow" autoplay="autoplay">
+						</video>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<script src="js/music.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;list-style: none;}
+			#panel{
+				width: 400px;box-shadow: 0 0 10px black;margin: 100px auto;padding: 20px;
+			}
+			.panel-header{
+				text-align: center;
+				margin-bottom:10px ;
+			}
+			.panel-bottom{
+				text-align: center;
+				margin-top: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="panel">
+			<section class="panel-header">
+				<h2>emmmm</h2><hr />
+				<label><input type="checkbox"></label>1.李白<br>
+				<label><input type="checkbox"></label>2.韩信<br>
+				<label><input type="checkbox"></label>3.赵云<br>
+				<label><input type="checkbox"></label>4.公孙离<br>
+				<label><input type="checkbox"></label>5.诡术妖姬<br>
+				<label><input type="checkbox"></label>6.我真的<br>
+				<label><input type="checkbox"></label>7.我真的<br>
+				<label><input type="checkbox"></label>8.我真的<br>
+				<label><input type="checkbox"></label>9.我真的<br>
+				<label><input type="checkbox"></label>10.我真的<br>
+			</section>
+			<section class="panel-bottom">
+				<hr />
+				<button id="allSelect">全选</button>
+				<button id="allCancel">全不选</button>
+				<button id="reverseSelect">反选</button>
+			</section>
+		</div>
+		<script >
+			window.onload=function(ev){
+				//1.获取所有的复选框
+				var inputs=document.querySelectorAll('input');
+				
+				//2.全选
+				$('allSelect').addEventListener('click',function(){
+					for(let i=0;i<inputs.length;i++){
+						//console.log(inputs[i]);
+						var input=inputs[i];
+						input.checked=true;
+					}
+				})
+				//3.取消选中				
+				$("allCancel").addEventListener('click',function(){
+					for(let i=0;i<inputs.length;i++){
+						//console.log(inputs[i]);
+						var input=inputs[i];
+						input.checked=false;
+					}
+				})
+				//4.反选
+				$("reverseSelect")
+				$("reverseSelect").addEventListener('click',function(){
+					for(let i=0;i<inputs.length;i++){
+						//console.log(inputs[i]);
+						var input=inputs[i];
+						if(input.checked===false)
+						input.checked=true;
+						else
+						input.checked=false;
+					}
+				})
+				
+				
+				function $(id){
+					return typeof id==='string'?document.getElementById(id):null;
+				}
+				
+			}
+			
+		</script>
+	</body>
+</html>

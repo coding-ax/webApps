@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				vertical-align: top;
+			}
+			body{
+				background: url("img/1.jpg") no-repeat;
+				background-size: cover;
+			}
+			#box{
+				background-color:rgba(255,255,255,.5);
+			}
+			#box ul{display: flex;justify-content: space-around;align-items: center;cursor: pointer;}
+			#box ul li img{width: 180px; height: 120px;margin: 10px 0;}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+		<ul>
+			<li>
+				<img src="img/1.jpg" alt="" />
+			</li>
+			<li>
+				<img src="img/2.jpg" alt="" />
+			</li>
+			<li>
+				<img src="img/3.jpg" alt="" />
+			</li>
+			<li>
+				<img src="img/4.jpg" alt="" />
+			</li>
+			<li>
+				<img src="img/5.jpg" alt="" />
+			</li>
+		</ul>
+		</div>
+		<script type="text/html">
+			
+			window.onload=function(){
+				//1.获取标签
+				var box=document.getElementById("box");
+				var allLis=box.getElementsByTagName("li");
+				
+				//2.遍历监听
+				for(let i=0;i<allLis.length;i++){
+					//2.1取出单个li标签
+					var sLi=allLis[i]
+					sLi.index=i+1;//用于解决同步问题
+					//2.2监听点击事件
+					sLi.addEventListener('click',function(ev){
+						document.body.style.background='url("img/'+this.index+'.jpg") no-repeat';
+					}) 
+					
+					
+				}
+				
+				
+			}
+		</script>
+		<script>
+			window.onload=function(){
+				//1.获取标签
+				var box=document.getElementById("box");
+				var allLis=box.getElementsByTagName("li");
+				
+				//2.遍历监听
+				for(let i=0;i<allLis.length;i++){
+					//2.1取出单个li标签
+					var sLi=allLis[i];
+					(function(index){
+						sLi.addEventListener('click',function(ev){
+							document.body.style.background='url("img/'+index+'.jpg") no-repeat';
+						}) 
+					}//闭包实现
+					)(i+1)
+					
+					
+				}
+				
+				
+			}
+		</script>
+	</body>
+</html>

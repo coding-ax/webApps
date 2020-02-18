@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			#box{
+				width:1200px;
+				margin:0px,auto;
+			}
+			img{
+				height: 700px;
+			}
+		</style>
+		
+	</head>
+		<body>
+			<div id="box">
+				<img id="icon" src="img/1.jpg" />
+				<br>
+				<button id="prev" onclick="imgchange('prev')">上一张</button>
+				<button id="next" onclick="imgchange('next')">下一张</button>
+			</div>
+			<script>		
+				
+					var nownumber=1;
+					function imgchange(str){
+					var arr=new Array();
+					var img=document.getElementById("icon");
+					if(str=='prev')
+					{
+						nownumber--;
+						if(nownumber<0)
+						nownumber=8;
+					}
+					else if(str=='next')
+					{
+						nownumber++;
+						if(nownumber>8)
+						nownumber=1;
+					}
+					nownumber=String(nownumber);
+					img.setAttribute('src','img/'+nownumber+'.jpg');
+					}
+					
+					
+			</script>
+		</body>
+</html>
+			
