@@ -95,15 +95,52 @@
 				console.log(window.bd);//undefined  
 				//ES6一共有六种声明变量的方法:var function let const class import
 				 */
-				var a=[]; 
-				for(let i=0;i<10;i++){
-					let i=10;
-					a[i]=function(){
-						console.log(i);
-					};
+				// var a=[]; 
+				// for(let i=0;i<10;i++){
+				// 	let i=10;
+				// 	a[i]=function(){
+				// 		console.log(i);
+				// 	};
+				// }
+				// console.log(a.length);	
+				// //a[6]();
+
+				class Car{
+					constructor(color){
+						this._color=color;
+						
+					}
+					static carnb(){
+						console.log('我真牛逼')
+					}
+					//在类中定义方法只可以使用简写方式
+					run(){
+						console.log('我可以爬')
+					}
+					get color(){
+						return this._color;
+					}
+					set color(color){
+						this._color=color;
+					}
 				}
-				console.log(a.length);	
-				//a[6]();
+				let car=new Car('yellow');
+				console.log(car);
+				car.run();
+				Car.carnb();
+
+				class superCar extends Car{
+					constructor(color){
+						super();
+						this._color=color;
+					}
+					run(){
+						console.log('我是car的儿子');
+						super.run();
+					}
+				}
+				let supercar=new superCar();
+				supercar.run();
 		</script>
 	</body>
 </html>
