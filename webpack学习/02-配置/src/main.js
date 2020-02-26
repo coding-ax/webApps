@@ -5,6 +5,19 @@ import { name, ID, age } from './js/info.js';
 
 //3.引入CSS
 import css from './css/normal.css';
+
+//5.引入vue
+import Vue from 'vue';
+
+
+//vue: runtime-only runtime-compiler
+const app = new Vue({
+    el: '#app',
+    data:{
+        message:'hello vue'
+    }
+})
+
 console.log(name);
 console.log(ID);
 console.log(age);
