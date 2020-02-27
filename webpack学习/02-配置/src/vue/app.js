@@ -18,6 +18,6 @@ export default {
                 btnClick() {
                     console.log('you have already click the button at' + this.count++);
                 }
-            }
-            c
+            },
+            
 }
