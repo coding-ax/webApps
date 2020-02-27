@@ -1,11 +1,12 @@
 const path = require("path");
-
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin');
 module.exports = {
   entry: "./src/main.js",
   output: {
     path: path.resolve(__dirname, "dist"), //动态的获取路径（必须用绝对路径，涉及到node)
     filename: "bundle.js",
-    publicPath: "dist/"
+    // publicPath: "dist/"
   },
   module: {
     rules: [
@@ -53,4 +54,14 @@ module.exports = {
       'vue$':'vue/dist/vue.esm.js'
     }
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template:'index.html'
+    }),
+  //  new UglifyjsWebpackPlugin()
+  ],
+  devServer:{
+     contentBase:'./dist',
+     inline:true,
+  }
 };

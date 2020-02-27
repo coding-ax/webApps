@@ -19,4 +19,5 @@ export default {
                     console.log('you have already click the button at' + this.count++);
                 }
             }
+            c
 }

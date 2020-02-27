@@ -8,7 +8,6 @@ import css from './css/normal.css';
 
 //5.引入vue
 import Vue from 'vue';
-
 // import App from './vue/app'
 import App from './vue/App.vue'
 //vue: runtime-only runtime-compiler
@@ -20,6 +19,9 @@ new Vue({
         App:App
     }
 })
+
+console.log(name);
+document.writeln("<button>你好</button>")
 
 // console.log(name);
 // console.log(ID);
