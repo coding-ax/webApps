@@ -1,0 +1,24 @@
+{
+"userArray": [
+        {
+    "userName":"AX",
+    "password":"123456"
+        },
+        {
+    "userName":"lxx",
+    "password":"123456"
+        },
+        {
+    "userName":"ykh",
+    "password":"123456"
+        },
+        {
+    "useName":"hgn",
+    "password":"123456"
+        },
+        {
+    "useName":"dcb",
+    "password":"123456"
+        }
+    ]
+}

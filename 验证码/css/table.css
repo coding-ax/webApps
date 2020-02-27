@@ -1,0 +1,68 @@
+/* #app{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+} */
+.Box{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: 500;
+    color: darkslateblue;
+    padding: 2rem;
+    padding-bottom: 6rem;
+    background-color: deepskyblue;
+    border-radius: 0.5rem;
+}
+.checkID{
+    width: 100px;
+    background-color: aquamarine;
+    height: 100px;
+    margin-top: 5%;
+   margin-left: 20%;  
+   display: none;
+}
+.imgBox img{
+    max-width: 80%;
+    box-shadow:6px 6px 5px #888888;
+    border-radius: 0.2rem;
+}
+
+.input{
+    border: none;
+    border-radius: 3%;
+    width: 50%;
+    color:red;
+    
+}
+input::-webkit-input-placeholder{
+    color:#888888
+}
+input::-moz-placeholder{
+    color:#888888
+}
+.remember{
+    font-size: 8px;
+}
+.regist{
+    background-color: white;
+    border: none;
+    border-radius: 5%;
+}
+.regist:hover{
+    cursor: pointer;
+}
+.login{
+    background-color: white;
+    border: none;
+    border-radius: 5%;
+}
+.login:hover{
+    cursor: pointer;
+}
+footer{
+    color: black;
+    font-size: 8px;
+}
