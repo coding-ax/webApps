@@ -43,20 +43,10 @@
 					//消息集合：
 					machalMessages:[
 						{
-							text:'你好',
+							text:'你好,试着和我打招呼？',
 							isPeople:false,
 							isMachal:true
 						},
-						{
-							text:'人工智障',
-							isPeople:true,
-							isMachal:false
-						},
-						{
-							text:'因为ajax跨域，所以我只会加感叹号',
-							isPeople:false,
-							isMachal:true
-						}
 					],
 					peopleMessages:[],
 					isPeople:false,
@@ -64,6 +54,9 @@
 				},
 				methods:{
 					setMessage:function(){
+
+						
+
 						var that=this;
 						let peopleSay={
 							text:this.info,
@@ -76,6 +69,8 @@
 						  top:document.documentElement.clientHeight+1000000,
 						  behavior:'smooth'
 						})
+						var textAns;
+						fetch('https://api.lovelive.tools/api/SweetNothings').then(response=>response.json()).then(response=>console.log(response))
 						setTimeout(function() {
 					
 							that.machalMessages.push({
