@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>二级列表下拉联动</title>
+</head>
+
+<body>
+    <div class="selectBox">
+        <select name="choose" id="ansChose">
+            <option value="homeZero">请选择……</option>
+            <option value="homeOne">你好</option>
+            <option value="homeTwo">你不好</option>
+            <option value="homeThree">hello</option>
+        </select>
+        <select name="theSecond" id="ansTwo">
+            <option value="noChooseAns">请选择……</option>
+        </select>
+    </div>
+    <script>
+        /*
+        1.设置chooseArray用来保存要更改的数据，以及跟随联动的数据
+        2.通过DOM方法拿到要更改的节点（chooseAns,chooseTwo)
+        3.通过添加监听事件（onchange）监听选择框的变化
+        4.监听到事件后执行chooseType函数
+        */
+
+
+
+        //定义的chooseArray是类似[{'你好'：Array[]}]结构的数组
+        //chooseAns是要监听的select标签,为dom元素
+        //chooseTwo是要改变的跟随联动的标签，为dom元素
+        let chooseArray = [
+            {
+                name: 'homeZero',
+                arrayList: ['0请选择……']
+            },
+            {
+                name: 'homeOne',
+                arrayList: ['1请选择……', '1我不好', '1你好吗', '1还行']
+
+            },
+            {
+                name: 'homeTwo',
+                arrayList: ['2请选择……', '2我好', '2你好', '2行']
+            },
+            {
+                name: 'homeThree',
+                arrayList: ['3请选择……', '3不好', '3好吗', '3还行']
+
+            },
+        ]
+
+        let chooseAns = document.getElementById('ansChose')
+
+        let chooseTwo = document.getElementById('ansTwo');
+
+        chooseAns.onchange = () => {
+            chooseType(chooseAns, chooseTwo, chooseArray);
+        }
+
+
+/*
+chooseType函数：
+1.清空原来子节点中已经添加的选项，否则会出现无限添加
+2.获取当前所选择的位置（选项）
+3.循环用于匹配数据。
+4.将数据通过相对应的方法设置为子节点
+*/
+
+
+        function chooseType(chooseAns, chooseTwo, chooseArray) {
+            //此处必须保存初始值：
+            let length = chooseTwo.childNodes.length;
+            //js数组，对象均为引用，所以修改childA等于修改其赋值的源数据
+            let childA = chooseTwo.childNodes;
+            //此处必须从前往后删除，否则会因为长度变化而无法删除干净，因为删除后其length就变化了，永远无法删除干净
+            for (let i = length - 1; i >= 0; i--) {
+                chooseTwo.removeChild(childA[i]);
+            }
+            //拿到对应的value值，用于匹配数据，此处不必强行记忆，在控制台中查看json数据，可以看到这个数据的变化
+            let result = chooseAns.options[chooseAns.selectedIndex].value;
+            //循环进行匹配
+            for (item of chooseArray) {
+                if (item.name == result) {
+                    let i=1;
+                    for (insetItem of item.arrayList) {
+                        //这是添加子节点的一般方法，也可以使用其他方法
+                        let currentNewNode = document.createElement('option');
+                        currentNewNode.value='value'+i++;
+                        currentNewNode.innerText = insetItem;
+                        chooseTwo.appendChild(currentNewNode);
+                    }
+                    //查找完毕，就可返回（也可break)
+                    return;
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
