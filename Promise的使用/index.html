@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+
+        // let promise=new Promise((resolve,reject)=>{
+        //     setTimeout(() => {
+        //         let data="第一次的时间:"+new Date().toLocaleString();
+        //         resolve(data);
+        //     }, 1000);
+        // }).then(data=>{
+        //     console.log(data);
+        //     return new Promise(resolve=>{
+        //         setTimeout(() => {
+        //         data="第二次的时间:"+new Date().toLocaleString();
+        //         resolve(data);
+        //     }, 1000);
+        //     })
+        // }).then(data=>{
+        //     console.log(data);
+        //     return new Promise(resolve=>{
+        //         setTimeout(()=>{
+        //             data="第三次的时间:"+new Date().toLocaleString();
+        //             resolve(data);
+        //         },1000)
+        //     })
+        // }).then(data=>{
+        //     console.log(data);
+        // })
+        
+
+        // let promise1=new Promise(resolve=>{
+        //     //模拟网络请求
+        //     setTimeout(()=>{
+        //         //请求完成
+        //             data="第sdad次的时间:"+new Date().toLocaleString();
+        //             resolve(data);
+        //         },1000)
+        //     }
+        // ).then(data=>{
+        //     console.log(data);
+        // });
+
+        //     let promise=new Promise((resolve,reject)=>{
+        //     setTimeout(() => {
+        //         let data="第一次的时间:"+new Date().toLocaleString();
+        //         resolve(data);
+        //     }, 1000);
+        // }).then(data=>{
+        //     console.log(data);
+        //     // return new Promise(resolve=>{
+        //     //     setTimeout(() => {
+        //     //     data="第二次的时间:"+new Date().toLocaleString();
+        //     //     resolve(data);
+        //     // }, 1000);
+        //     return Promise.resolve();
+        //     })
+        // }).then(data=>{
+        //     console.log(data);
+        //     return new Promise(resolve=>{
+        //         setTimeout(()=>{
+        //             data="第三次的时间:"+new Date().toLocaleString();
+        //             resolve(data);
+        //         },1000)
+        //     })
+        // }).then(data=>{
+        //     console.log(data);
+        // })
+
+
+
+        let promise=new Promise((resolve,reject)=>{
+            setTimeout(() => {
+                let data="第一次的时间:"+new Date().toLocaleString();
+                console.log(data);
+                resolve(data);
+            }, 1000);
+        }).then(res=>{
+            setTimeout(() => {
+                let data="第二次的时间:"+new Date().toLocaleString();
+                console.log(data);
+                // resolve(data)
+                return res;
+            }, 1000);
+        }).then(res=>{
+            setTimeout(() => {
+                let data="第三次的时间:"+new Date().toLocaleString();
+                console.log(data);
+            }, 1000);
+        })
+
+
+        // function resolve(data){
+        //     console.log(data);
+        // };
+        //参数->函数(resolve,reject)
+
+        // function doSomething() {
+        //     var data;
+        //     setTimeout(() => {
+        //         data = new Date().toLocaleTimeString();
+        //         console.log("setTime" + data);
+        //         return data;
+        //     }, 1000)
+        // }
+        // async function helloAsync() {
+        //     let data = await doSomething();
+        //     console.log(data);
+        // };
+
+        // console.log(new Date().toLocaleTimeString());
+        // helloAsync();
+    </script>
+</body>
+
+</html>
