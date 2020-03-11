@@ -9,8 +9,26 @@
 
 <body>
     <script>
-
-
+        new Promise((resolve, reject) => {
+            setTimeout(() => {
+                let data = "结果1";
+                resolve(data);
+            }, 1000)
+        })
+        Promise.all([new Promise((resolve, reject) => {
+            setTimeout(() => {
+                let data = "结果1";
+                resolve(data);
+            }, 1000)
+        }), new Promise((resolve, reject) => {
+            setTimeout(() => {
+                let data = "结果2";
+                resolve(data);
+            }, 2000)
+        })]).then(result => {
+            result=result.join('');
+            console.log(result)
+        })
         // let promise=new Promise((resolve,reject)=>{
         //     setTimeout(() => {
         //         let data="第一次的时间:"+new Date().toLocaleString();
@@ -35,7 +53,7 @@
         // }).then(data=>{
         //     console.log(data);
         // })
-        
+
 
         // let promise1=new Promise(resolve=>{
         //     //模拟网络请求
@@ -77,25 +95,25 @@
 
 
 
-        let promise=new Promise((resolve,reject)=>{
-            setTimeout(() => {
-                let data="第一次的时间:"+new Date().toLocaleString();
-                console.log(data);
-                resolve(data);
-            }, 1000);
-        }).then(res=>{
-            setTimeout(() => {
-                let data="第二次的时间:"+new Date().toLocaleString();
-                console.log(data);
-                // resolve(data)
-                return res;
-            }, 1000);
-        }).then(res=>{
-            setTimeout(() => {
-                let data="第三次的时间:"+new Date().toLocaleString();
-                console.log(data);
-            }, 1000);
-        })
+        // let promise=new Promise((resolve,reject)=>{
+        //     setTimeout(() => {
+        //         let data="第一次的时间:"+new Date().toLocaleString();
+        //         console.log(data);
+        //         resolve(data);
+        //     }, 1000);
+        // }).then(res=>{
+        //     setTimeout(() => {
+        //         let data="第二次的时间:"+new Date().toLocaleString();
+        //         console.log(data);
+        //         // resolve(data)
+
+        //     }, 1000);
+        // }).then(res=>{
+        //     setTimeout(() => {
+        //         let data="第三次的时间:"+new Date().toLocaleString();
+        //         console.log(data);
+        //     }, 1000);
+        // })
 
 
         // function resolve(data){
@@ -118,6 +136,12 @@
 
         // console.log(new Date().toLocaleTimeString());
         // helloAsync();
+
+
+
+
+
+
     </script>
 </body>
 

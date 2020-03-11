@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //拿到所有的链接
+
+        var allRes=[];
+        var targetArray=document.getElementsByClassName('popular-project-title')
+        //targetArray[0].click()
+
+
+        
+          //跳转
+        location.href=targetArray[3].href;
+        
+        //拿到同步按钮
+        var item=document.getElementById('btn-sync-from-github');
+        item.click()
+
+        var items=document.getElementsByClassName('ui small button orange ok')[0]
+        items.click()
+
+        location.href="https://gitee.com/codeax"
+        
+        var allRes=[];
+        var targetArray=document.getElementsByClassName('popular-project-title')
+        location.href=targetArray[3].href;
+        var item=document.getElementById('btn-sync-from-github');
+        item.click()
+        var items=document.getElementsByClassName('ui small button orange ok')[0]
+        items.click()
+        location.href="https://gitee.com/codeax"
+    </script>
+</body>
+</html>
