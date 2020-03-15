@@ -34,6 +34,7 @@
 				<div class="send" @click="setMessage">发送</div>
 			</div>
 		</div>
+		<!-- <script src="https://api.lovelive.tools/api/SweetNothings" id="nameScript" ></script> -->
 		<script type="text/javascript">
 			var app=new Vue({
 				el:"#app",
@@ -69,8 +70,12 @@
 						  top:document.documentElement.clientHeight+1000000,
 						  behavior:'smooth'
 						})
-						var textAns;
-						fetch('https://api.lovelive.tools/api/SweetNothings').then(response=>response.json()).then(response=>console.log(response))
+						// var textAns=document.getElementById('nameScript').innerText;
+						// console.log(textAns);
+						// fetch('https://api.lovelive.tools/api/SweetNothings').then(response=>response.json()).then(response=>console.log(response))
+						
+						fetch('https://api.apiopen.top/getJoke?page=1&count=2&type=video').then(response=>response.json()).then(response=>console.log(response))
+
 						setTimeout(function() {
 					
 							that.machalMessages.push({
