@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <style>
+        #app {
+            width: 100%;
+            padding: 25px;
+            margin: 0;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            /* background-color: black; */
+            color: aliceblue;
+        }
+
+        .play-button {
+
+            position: fixed;
+            width: 50%;
+            bottom: 10%;
+            left: 30%;
+            right: 30%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .play-button div {
+            flex: 1;
+            font-size: 20px;
+            line-height: 30px;
+            text-align: center;
+            border: 2px outset;
+            background-color: brown;
+            height: 30px;
+        }
+
+        .play-box {
+            position: fixed;
+            /* background-color: black; */
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            padding: 0 5% 0;
+        }
+
+        .cell {
+            /* background-color: red; */
+            width: 0.98%;
+            height: 0.98%;
+        }
+
+        .cell-one-line {
+            width: 100%;
+            height: 100%;
+            border: white solid 1px;
+        }
+
+        .cell_active {
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="play-box">
+
+            <div class="cell" v-for="(items,index) in cell">
+                <div class="cell-one-line" v-for="(item,index)  in items" :class="{cell_active:item}">
+                    <!-- {{item}} -->
+                </div>
+            </div>
+        </div>
+        <div class="play-button">
+            <div id="random" @click="randomGetPoint">随机取点</div>
+            <div id="playBegin">开始</div>
+        </div>
+    </div>
+</body>
+
+<script>
+    let app = new Vue({
+        el: "#app",
+        data() {
+            return {
+                cell: null,
+                //定义世界大小，数目
+                width: 100,
+                height: 100
+            }
+        },
+        watch: {
+
+        },
+        created() {
+            let len = this.height * this.width;
+            this.cell = new Array(this.height);
+            console.log(this.cell);
+            for (let i = 0; i < this.height; i++) {
+                this.cell[i] = new Array(this.width);
+                for (let j = 0; j < this.width; j++) {
+                    //false标记为死亡状态
+                    //true标记为存活状态
+                    // this.cell[i][j] = false;
+                    if (Math.random() * 10 > 8) {
+                        this.cell[i][j] = true;
+                        // console.log("this", this.cell[i][j], i, j)
+                    }
+
+                    this.cell[i][j] = false;
+                }
+            }
+            console.log(this.cell);
+        },
+        methods: {
+            randomGetPoint() {
+                console.log("here");
+                let cell = new Array(this.height);
+                for (let i = 0; i < this.height; i++) {
+                    cell[i] = new Array(this.width);
+                    for (let j = 0; j < this.width; j++) {
+                        //false标记为死亡状态
+                        //true标记为存活状态
+                        if (Math.random() * 10 > 8) {
+                            cell[i][j] = true;
+                            // console.log("this", this.cell[i][j], i, j)
+                        }
+
+                        cell[i][j] = false;
+                    }
+                }
+                this.cell = cell;
+            }
+        }
+    })
+</script>
+
+</html>
