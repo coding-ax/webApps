@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas style="width: 300px; height: 300px;" id="tutorial">ss</canvas>
+    <script>
+        function draw() {
+            /** @type {HTMLCanvasElement} */
+            let canvas = document.getElementById("tutorial");
+            let context = canvas.getContext("2d");
+            //填充版本
+            // context.fillStyle = "red"
+            // context.fillRect(10, 10, 50, 50);
+            // context.fillStyle = "#459648";
+            // context.fillRect(30, 30, 55, 50);
+
+            //线条版本
+            // context.strokeStyle="#ff0000";
+            // context.strokeRect(10,10,50,50);
+            // context.strokeStyle="rgba(0,0,255,0.5)";
+            // context.strokeRect(30,30,50,50);
+
+            // context.fillStyle = "rgba(0,0,255,0.5)"
+            // context.fillRect(10, 10, 50, 50);
+            // context.fillStyle = "rgba(0,255,0,0.5)";
+            // context.fillRect(30, 30, 55, 50);
+            // //清除小矩形
+            // context.clearRect(40,40,10,10)
+
+            //绘制不带数字的表盘
+            context.beginPath();
+            context.arc(150,100,50,0,2*Math.PI,false);
+            context.moveTo(194,100);
+            context.arc(150,100,47,0,2*Math.PI,false);
+            
+
+            context.stroke();
+        }
+        draw()
+    </script>
+</body>
+
+</html>

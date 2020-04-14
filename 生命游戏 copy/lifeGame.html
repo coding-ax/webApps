@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="control" width="400" height="400">
+        该浏览器不支持canvas
+    </canvas>
+    <div>
+        回合数：<span id="ans"></span>
+    </div>
+    <script>
+        //创建游戏类
+        class cellGame {
+            //构造函数，先写死为400
+            constructor() {
+                console.log(this);
+                this.alive = [];
+                // console.log(456);
+                for (let i = 0; i < 40; i++) {
+                    // console.log(i);
+                    this.alive[i] = [];
+                    for (let j = 0; j < 40; j++) {
+                        // console.log(i, j);
+                        if (Math.random() * 100 > 90) {
+                            this.alive[i][j] = 1;
+                            // console.log(i, j);
+                            continue;
+                        }
+                        this.alive[i][j] = 0;
+                    }
+                }
+
+            };
+
+            init() {
+                /** @type {HTMLCanvasElement} */
+                let canvas = document.getElementById("control");
+                let context = canvas.getContext("2d");
+
+                for (let i = 0; i < 41; i++) {
+                    //使用canvas划线
+                    context.beginPath();
+                    context.moveTo(i * 10, 0);
+                    context.lineTo(i * 10, 400);
+                    // context.moveTo()
+                    context.stroke();
+                    context.moveTo(0, 10 * i);
+                    context.lineTo(400, i * 10);
+                    context.stroke();
+                }
+            };
+            draw() {
+                /** @type {HTMLCanvasElement} */
+                let canvas = document.getElementById("control");
+                let context = canvas.getContext("2d");
+
+                for (let i = 1; i < 40; i++) {
+                    for (let j = 1; j < 40; j++) {
+                        if (this.alive[i][j] == 1) {
+                            context.fillStyle = "black";
+                            context.fillRect(i * 10 + 1, j * 10 + 1, 8, 8);
+                        } else {
+                            context.fillStyle = "white";
+                            context.fillRect(i * 10 + 1, j * 10 + 1, 8, 8);
+                        }
+                    }
+                }
+            };
+
+            toAlive() {
+                console.log(this.alive);
+                for (let i = 1; i < 39; i++) {
+                    for (let j = 1; j < 39; j++) {
+                        console.log(i-1,j-1)
+                        let sum = this.alive[i - 1][j - 1] + this.alive[i - 1][j] +
+                            this.alive[i - 1][j + 1] + this.alive[i][j - 1] + this.alive[i][j + 1] +
+                            this.alive[i + 1][j - 1] + this.alive[i + 1][j] + this.alive[i + 1][j + 1];
+                            /**
+                             * 1.2/3人 本身活 则保持不变
+                             * 2.少于2个，本身活 孤独而死
+                             * 3.多于三个，本身活，拥挤而死
+                             * 4.本身不活，周围有三个 死
+                            */
+                        //通过逻辑电路计算可得：
+                        /**
+                         *  设A : 周围3人 B：周围2人 C：本身存活 D:最后状态
+                         * 则有：
+                         *    
+                        */
+                        this.alive[i][j] = ((sum == 3) | (sum == 2 & this.alive[i][j]))
+                    }
+                }
+            }
+
+        }
+
+        let canvas = new cellGame();
+        console.log(canvas);
+        canvas.init();
+        canvas.draw();
+        let currentCount=document.getElementById("ans");
+        let count=0;
+            setInterval(() => {
+                canvas.toAlive();
+                canvas.draw();
+                currentCount.innerText=count++;
+            }, 50);
+    </script>
+</body>
+
+</html>
