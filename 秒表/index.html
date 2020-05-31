@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+        }
+
+        .title {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            font-size: 30px;
+            color: #e74c3c;
+        }
+
+        .time-box {
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            border-radius: 50%;
+            margin: 20px;
+            border: 2px dotted #bdc3c7;
+            font-size: 30px;
+            font-family: Century Gothic;
+        }
+
+        #msecond {
+            color: #27ae60;
+        }
+
+        .button-box {
+            position: absolute;
+            bottom: 60px;
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+        }
+
+        .button-box div {
+            flex: 1;
+        }
+
+        .start {
+            background-image: linear-gradient(to right, #3498db, #9b59b6);
+            height: 40px;
+            line-height: 40px;
+            color: white;
+            font-weight: 500;
+            margin: 20px;
+            width: 33.3%;
+            border-radius: 5px;
+        }
+        #setting-panel{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+        }
+        #sure{
+            background-image: linear-gradient(to right, #3498db, #9b59b6);
+            height: 40px;
+            width: 100px;
+            line-height: 40px;
+            color: white;
+            font-weight: 500;
+            border-radius: 5px;
+        }
+        input{
+            width: 50px;
+            margin-right: 70px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="title">
+            <div> 秒表 </div>
+        </div>
+        <div class="time-box">
+            <span id="minute">
+                00
+            </span>
+            <span>
+                :
+            </span>
+            <span id="second">
+                00
+            </span>
+            <span>
+                :
+            </span>
+            <span id="msecond">
+                00
+            </span>
+        </div>
+        <div class="button-box">
+            <div class="start" id="start">
+                启动
+            </div>
+            <div class="start" id="reset">
+                复位
+            </div>
+            <div class="start" id="stop">
+                暂停
+            </div>
+            <div class="start" id="setting">
+                设置
+            </div>
+        </div>
+        <div id="setting-panel" style="display: none;">
+           设置时间放慢倍数：<input id="count" type="number" value="1.0" name="count">
+            <span id="sure">确认</span>
+        </div>
+
+    </div>
+
+</body>
+<script>
+    let msecond = document.getElementById("msecond")
+    let minute = document.getElementById("minute")
+    let second = document.getElementById("second")
+    let Inputnode = document.getElementById('count')
+    let count = Number(document.getElementById('count').value)
+    let start = document.getElementById("start")
+
+    // 重置
+    let reset = document.getElementById("reset")
+    let setting = document.getElementById("setting")
+    let settingPanel =document.getElementById("setting-panel")
+    let settingpanel = document.getElementById("setting-panel")
+    // 定时器
+    let num = 0
+    // 确认
+    let sure = document.getElementById("sure")
+    sure.addEventListener("click",()=>{
+        console.log(sure)
+        
+        settingpanel.style.display="none"
+    })
+    // 改变定时器
+    setting.addEventListener("click",()=>{
+        settingPanel.style.display=""
+    })
+    
+    // 输入框时间改变
+    Inputnode.addEventListener("change", event => {
+        console.log(event)
+        count = Number(document.getElementById('count').value)
+        console.log(count)
+    })
+    // 启动按钮添加事件
+    start.addEventListener("click", eve => {
+        console.log(count)
+        num = countNum(count)
+    })
+    reset.addEventListener("click", (eve) => {
+        minute.innerText = "00"
+        second.innerText = "00"
+        msecond.innerText = "00"
+        clearInterval(num)
+    })
+
+
+    // 时间变化函数
+    function countNum(count) {
+        let num = setInterval(() => {
+            // console.log(msecond)
+            msecond.innerText = Number(msecond.innerText) + 1
+            if (msecond.innerText > 99) {
+                msecond.innerText = 0
+                second.innerText = Number(second.innerText) + 1
+                if (second.innerText > 59) {
+                    second.innerText = 0;
+                    minute.innerText = Number(minute.innerText) + 1
+                    if (minute.innerText > 59) {
+                        minute.innerText = 0
+                    }
+                    if (minute.innerText < 10) {
+                        minute.innerText = '0' + String(minute.innerText)
+                    }
+                }
+                if (second.innerText < 10) {
+                    second.innerText = '0' + String(second.innerText)
+                }
+
+            }
+            if (msecond.innerText < 10) {
+                msecond.innerText = '0' + String(msecond.innerText)
+            }
+        }, count * 10);
+        return num
+    }
+
+
+
+
+</script>
+
+
+</html>
