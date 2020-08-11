@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <form action="http://127.0.0.1:5000/uploadfile" enctype="multipart/form-data" method="post">
+        <input accept="image" type="file" name="pic" />
+        <button type="submit">提交</button>
+    </form>
+    <script>
+        let input = document.querySelector('input');
+        input.addEventListener('change', (eve) => {
+            console.log(eve)
+            // 拿到图片
+            let img = eve.target.files[0];
+            // 构造表单数据
+            let formData = new FormData();
+            formData.append('pic', img)
+            // 发送
+            console.log(formData.get('pic'))
+            // 设置配置
+            let config = {
+                // 添加请求头
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                // 添加文件上传进度监听
+                onUploadProgress: e => {
+                    console.log(e)
+                }
+            }
+            axios.post("http://127.0.0.1:5000/uploadfile", formData, config)
+
+            // axios.post("http://127.0.0.1:5000/uploadfile", {
+            //     headers: {
+            //         'Content-Type': 'application/x-www-form-urlencoded'
+            //     },
+            //     body: formData
+            // }).then((res) => {
+            //     console.log(res)
+            // }).catch(res => console.log(res))
+        })
+
+    </script>
+</body>
+
+</html>

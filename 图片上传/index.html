@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 使用multiple可以上传多个文件  -->
+    <input type="file" multiple="multiple" accept="image/jpg,image/jpeg,image/png" />
+    <div>
+        <img src="" alt="">
+    </div>
+
+    <script>
+        function test(e) {
+            console.log(e)
+            console.log(e.target.files)
+            document.querySelector("img").src = window.URL.createObjectURL(e.target.files[0])
+            document.querySelector("img").style.width = "300px";
+            document.querySelector("img").style.height = "300px";
+        }
+        document.querySelector("input").addEventListener("change", test)
+
+        function Ajax(payload) {
+            /**
+             *  payload:{
+             *  url:'/url',
+             *  method:'get',
+             *  async: true
+             * }
+             * */
+            // 创建xhr对象
+            let xhr = new XMLHttpRequest();
+            // 通过open方法配置请求信息,
+            // 第一个参数是请求方式，第二个参数是请求的url，第三个参数是请求是否异步(true异步)
+            // xhr.open(请求方式:'get/post/put/delete',请求地址:'url'，是否异步:true/false)
+            xhr.open(payload.url, payload.method, true);
+            // 发送请求
+            xhr.send();
+            /**
+             * 
+            一个最基本的 ajax 请求就是上面三步
+            但是光有上面的三个步骤，我们确实能把请求发送的到服务端
+            如果服务端正常的话，响应也能回到客户端
+            但是我们拿不到响应
+            如果想拿到响应，我们有两个前提条件
+            本次 HTTP 请求是成功的，也就是我们之前说的 http 状态码为 200 ~ 299
+            ajax 对象也有自己的状态码，用来表示本次 ajax 请求中各个阶段
+            readyState === 0： 表示未初始化完成，也就是 open 方法还没有执行 
+            readyState === 1： 表示配置信息已经完成，也就是执行完 open 之后
+            readyState === 2： 表示 send 方法已经执行完成
+            readyState === 3： 表示正在解析响应内容
+            readyState === 4： 表示响应内容已经解析完毕，可以在客户端使用了
+             * */
+            // 如果是用 ajax 对象发送 post 请求，必须要先设置一下请求头中的 content-type
+            // 告诉一下服务端我给你的是一个什么样子的数据格式
+            xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded')
+            xhr.onreadystatechange(function () {
+                // 每次 readyState 改变的时候都会触发该事件
+                // 我们就在这里判断 readyState 的值是不是到 4
+                // 并且 http 的状态码是不是 200 ~ 299
+                if (xhr.readyState === 4 && /^2\d{2|$/.test(xhr.status)) {
+                    // 这里表示验证通过
+                    // 我们就可以获取服务端给我们响应的内容了
+                    console.log(xhr.response)
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>
